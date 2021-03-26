@@ -9,10 +9,10 @@
         <div class="login-form">
           <form method="POST" action="{{ route('login') }}">
             @csrf
-            <label>Tên đăng nhập *</label>
+            <label>Email *</label>
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
               value="{{ old('email') }}" required autocomplete="email" autofocus>
-            <label>Mật khẩu *</label>
+            <label>Password *</label>
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
               name="password" required autocomplete="current-password">
             <div class="checkbox checkbox-primary">
@@ -24,8 +24,8 @@
               </label>
             </div>
             <div class="text-center">
-              <button type="submit" name="signin" value="Login" id="login-form">Đăng nhập</button>
-              <button class="form-cancel" type="submit" value="">Hủy</button>
+              <button type="submit" name="signin" value="Login" id="login-form">Login</button>
+              <button class="form-cancel" type="submit" value="">Cancel</button>
             </div>
             <label class="lost-password">
               @if (Route::has('password.request'))

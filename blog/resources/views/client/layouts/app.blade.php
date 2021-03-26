@@ -51,7 +51,7 @@
   <!-- Preloader End Here -->
   <div id="wrapper" class="wrapper">
     <!-- Header Area Start Here -->
-    @include('partial.header')
+    @include('client.partial.header')
 
     <!-- News Feed Area Start Here -->
     <section class="bg-accent border-bottom add-top-margin">
@@ -101,15 +101,15 @@
     </section>
 
     <!-- Đăng nhập-->
-    @include('auth.loginuser')
+    @include('client.auth.login')
     <!-- Đăng nhâp End-->
     <!-- Đăng ký-->
-    @include('auth.signupuser')
+    @include('client.auth.register')
     <!-- Đăng ký End-->
 
 
 
-
+    @yield('content')
 
 
 
@@ -117,7 +117,7 @@
     @yield('content')
   </main> -->
 
-    @include('partial.footer')
+    @include('client.partial.footer')
   </div>
   <script src="{{ asset('asset/client/js/jquery-2.2.4.min.js') }}" type="text/javascript"></script>
   <!-- Plugins js -->
@@ -146,38 +146,8 @@
   <!-- Custom Js -->
   <script src="{{ asset('asset/client/js/main.js') }}" type="text/javascript"></script>
 
-  <script>
-  $(document).ready(function() {
-    $("#login-form").click(function(event) {
-      event.preventDefault();
-      var email = $("#email").val();
-      var password = $("#password").val();
-      $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val()
-            }
-        });
-      $.ajax({
-        type: 'post',
-        url: 'http://127.0.0.1:8000/login',
-        data: {
-          'email': email,
-          'password': password
-        },
-        dataType: 'json',
-        success: function(data) {
-          console.log('success');
-          $('#myModal').modal('hide');
-          window.location.href = '/home';
-        },
-        error: function(data) {
-          $('input[name="email"]').addClass('is-invalid');
-          $('input[name="password"]').addClass('is-invalid');
-          $('input[name="password"]').after('<span class="invalid-feedback " role="alert"><strong>Check email or password, please !!!</strong></span>');
-        }
-      });
-    });
-  });
-  </script>
+  @stack('scripts')
+
+  
 </body>
 </html>
