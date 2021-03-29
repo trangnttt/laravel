@@ -1,79 +1,60 @@
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <div class="title-login-form">Đăng nhập</div>
-      </div>
-      <div class="modal-body">
-        <div class="login-form">
-          <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <label>Email *</label>
-            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-              value="{{ old('email') }}" required autocomplete="email" autofocus>
-            <label>Password *</label>
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-              name="password" required autocomplete="current-password">
-            <div class="checkbox checkbox-primary">
-              <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                {{ old('remember') ? 'checked' : '' }}>
+@extends('admin.layouts.login')
 
-              <label class="form-check-label" for="remember">
-                {{ __('Remember Me') }}
+@section('content')
+<div class="login-box">
+  <div class="login-logo">
+    <h3>SIGNIN ADMIN</h3>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <form action="" method="post">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
               </label>
             </div>
-            <div class="text-center">
-              <button type="submit" name="signin" value="Login" id="login-form">Login</button>
-              <button class="form-cancel" type="submit" value="">Cancel</button>
-            </div>
-            <label class="lost-password">
-              @if (Route::has('password.request'))
-              <a href="{{ route('password.request') }}">
-                {{ __('Forgot Your Password?') }}
-              </a>
-              @endif
-            </label>
-          </form>
+          </div>
+          <!-- /.col -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+          <!-- /.col -->
         </div>
-      </div>
+      </form>
+
+      <p class="mb-3 text-center">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0 text-center">
+        <a href="" class="text-center">Register a new membership</a>
+      </p>
     </div>
+    <!-- /.login-card-body -->
   </div>
 </div>
+<!-- /.login-box -->
 
-@push('scripts')
-<script>
-  $(document).ready(function() {
-    $("#login-form").click(function(event) {
-      event.preventDefault();
-      var email = $("#email").val();
-      var password = $("#password").val();
-      $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val()
-            }
-        });
-      $.ajax({
-        type: 'post',
-        url: 'http://127.0.0.1:8000/login',
-        data: {
-          'email': email,
-          'password': password
-        },
-        dataType: 'json',
-        success: function(data) {
-          console.log('success');
-          $('#myModal').modal('hide');
-          window.location.href = '/';
-        },
-        error: function(data) {
-          $('input[name="email"]').addClass('is-invalid');
-          $('input[name="password"]').addClass('is-invalid');
-          $('input[name="password"]').after('<span class="invalid-feedback " role="alert"><strong>Check email or password, please !!!</strong></span>');
-        }
-      });
-    });
-  });
-  </script>
-@endpush
 
+@endsection

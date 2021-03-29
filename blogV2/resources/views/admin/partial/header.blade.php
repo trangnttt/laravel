@@ -151,7 +151,7 @@
                           <a href="index.php" class="nav-link active">
                               <i class="nav-icon fas fa-tachometer-alt"></i>
                               <p>
-                                  Trang chủ
+                                  Home
                               </p>
                           </a>
                       </li>
@@ -159,22 +159,22 @@
                           <a href="#" class="nav-link">
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
-                                  Chuyên mục
+                                  Category
                                   <i class="fas fa-angle-left right"></i>
                                   <span class="badge badge-info right">6</span>
                               </p>
                           </a>
                           <ul class="nav nav-treeview">
                               <li class="nav-item">
-                                  <a href="#" class="nav-link">
+                                  <a href="/admin/category/add" class="nav-link">
                                       <i class="far fa-circle nav-icon"></i>
-                                      <p>Thêm</p>
+                                      <p>Add</p>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a href="#" class="nav-link">
+                                  <a href="/admin/category/list" class="nav-link">
                                       <i class="far fa-circle nav-icon"></i>
-                                      <p>Danh sách</p>
+                                      <p>List</p>
                                   </a>
                               </li>
                           </ul>
@@ -183,22 +183,22 @@
                           <a href="#" class="nav-link">
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
-                                  Bài viết
+                                  Post
                                   <i class="fas fa-angle-left right"></i>
                                   <span class="badge badge-info right">6</span>
                               </p>
                           </a>
                           <ul class="nav nav-treeview">
                               <li class="nav-item">
-                                  <a href="#" class="nav-link">
+                                  <a href="/admin/post/add" class="nav-link">
                                       <i class="far fa-circle nav-icon"></i>
-                                      <p>Thêm</p>
+                                      <p>Add</p>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a href="#" class="nav-link">
+                                  <a href="/admin/post/list" class="nav-link">
                                       <i class="far fa-circle nav-icon"></i>
-                                      <p>Danh sách</p>
+                                      <p>List</p>
                                   </a>
                               </li>
                           </ul>
@@ -207,7 +207,7 @@
                           <a href="#" class="nav-link">
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
-                                  Thành viên
+                                  Member
                                   <i class="fas fa-angle-left right"></i>
                                   <span class="badge badge-info right">6</span>
                               </p>
@@ -216,13 +216,13 @@
                               <li class="nav-item">
                                   <a href="#" class="nav-link">
                                       <i class="far fa-circle nav-icon"></i>
-                                      <p>Thêm</p>
+                                      <p>Add</p>
                                   </a>
                               </li>
                               <li class="nav-item">
                                   <a href="#" class="nav-link">
                                       <i class="far fa-circle nav-icon"></i>
-                                      <p>Danh sách</p>
+                                      <p>List</p>
                                   </a>
                               </li>
                           </ul>
@@ -231,7 +231,7 @@
                           <a href="View/client/pages/logout.php" class="nav-link">
                               <i class="nav-icon nav-icon fas fa-edit"></i>
                               <p>
-                                  Đăng xuất
+                                  Logout
                               </p>
                           </a>
                       </li>
