@@ -32,7 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group( [ 'prefix' => 'admin'], function()
 {
     Route::get('admin/login', [App\Http\Controllers\AdminController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('admin/login', [App\Http\Controllers\AdminController::class, 'adminLogin']);
+    Route::post('admin/login', [App\Http\Controllers\AdminController::class, 'adminLogin'])->name('admin.login');
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/', function () {
             return view('admin.home');

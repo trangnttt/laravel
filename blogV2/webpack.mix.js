@@ -66,7 +66,6 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/plugins/jqvmap/jquery.vmap.min.js', 'public/asset/admin/plugins/jqvmap/jquery.vmap.min.js')
     .copy('resources/asset/admin/plugins/jqvmap/maps/jquery.vmap.usa.js', 'public/asset/admin/plugins/jqvmap/maps/jquery.vmap.usa.js')
     .copy('resources/asset/admin/plugins/jquery-knob/jquery.knob.min.js', 'public/asset/admin/plugins/jquery-knob/jquery.knob.min.js')
-    
     .copy('resources/asset/admin/plugins/moment/moment.min.js', 'public/asset/admin/plugins/moment/moment.min.js')
     .copy('resources/asset/admin/plugins/daterangepicker/daterangepicker.js', 'public/asset/admin/plugins/daterangepicker/daterangepicker.js')    
     .copy('resources/asset/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js', 'public/asset/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')
@@ -74,7 +73,9 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js', 'public/asset/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')
     .copy('resources/asset/admin/dist/js/adminlte.js', 'public/asset/admin/dist/js/adminlte.js')
     .copy('resources/asset/admin/dist/js/pages/dashboard.js', 'public/asset/admin/dist/js/pages/dashboard.js')
-    .copy('resources/asset/admin/dist/js/demo.js', 'public/asset/admin/dist/js/demo.js');
+    .copy('resources/asset/admin/dist/js/demo.js', 'public/asset/admin/dist/js/demo.js')
+    
+    .copy('resources/asset/admin/dist/js/adminlte.min.js', 'public/asset/admin/dist/js/adminlte.min.js');
 
 
 mix.copyDirectory('resources/asset/client/img', 'public/asset/client/img');

@@ -10,11 +10,11 @@
 
   <title>{{ config('app.name', 'Laravel') }}</title>
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('asset/admin/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('asset/admin/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ asset('asset/admin/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('asset/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('asset/admin/dist/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
@@ -27,9 +27,9 @@
   @yield('content')
 
 <!-- jQuery -->
-<script src="{{ asset('asset/admin/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('asset/admin/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('asset/admin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('asset/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('asset/admin/dist/js/adminlte.min.js') }}"></script>
 

@@ -49,6 +49,7 @@
     "/asset/admin/dist/js/adminlte.js": "/asset/admin/dist/js/adminlte.js",
     "/asset/admin/dist/js/pages/dashboard.js": "/asset/admin/dist/js/pages/dashboard.js",
     "/asset/admin/dist/js/demo.js": "/asset/admin/dist/js/demo.js",
+    "/asset/admin/dist/js/adminlte.min.js": "/asset/admin/dist/js/adminlte.min.js",
     "/asset/client/img/404.png": "/asset/client/img/404.png",
     "/asset/client/img/author.jpg": "/asset/client/img/author.jpg",
     "/asset/client/img/blog1.jpg": "/asset/client/img/blog1.jpg",

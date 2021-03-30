@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -55,6 +56,16 @@ class AdminController extends Controller
         //     'email'   => 'required|email',
         //     'password' => 'required|min:6'
         // ]);
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|password',
+        ]);
+        if ($validator->fails()) {
+            return redirect('admin/login')
+                        ->withErrors($validator)
+                        ->withInput();
+            // return view('admin.auth.login');
+        }
        
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
    
