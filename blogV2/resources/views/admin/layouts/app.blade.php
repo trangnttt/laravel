@@ -38,3 +38,5 @@
     @yield('content')
 
     @include('admin.partial.footer')
+
+    @stack('scripts')

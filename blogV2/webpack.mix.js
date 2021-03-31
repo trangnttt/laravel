@@ -38,9 +38,11 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css', 'public/asset/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')
     .copy('resources/asset/admin/plugins/daterangepicker/daterangepicker.css', 'public/asset/admin/plugins/daterangepicker/daterangepicker.css')
     .copy('resources/asset/admin/plugins/summernote/summernote-bs4.css', 'public/asset/admin/plugins/summernote/summernote-bs4.css')
+    .copy('resources/asset/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css', 'public/asset/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')
+    .copy('resources/asset/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css', 'public/asset/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')
 
 
-
+    
     
 
     .copy('resources/asset/client/js/jquery-2.2.4.min.js', 'public/asset/client/js/jquery-2.2.4.min.js')
@@ -74,7 +76,10 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/dist/js/adminlte.js', 'public/asset/admin/dist/js/adminlte.js')
     .copy('resources/asset/admin/dist/js/pages/dashboard.js', 'public/asset/admin/dist/js/pages/dashboard.js')
     .copy('resources/asset/admin/dist/js/demo.js', 'public/asset/admin/dist/js/demo.js')
-    
+    .copy('resources/asset/admin/plugins/datatables/jquery.dataTables.min.js', 'public/asset/admin/plugins/datatables/jquery.dataTables.min.js')
+    .copy('resources/asset/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js', 'public/asset/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')
+    .copy('resources/asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js', 'public/asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')
+    .copy('resources/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js', 'public/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')    
     .copy('resources/asset/admin/dist/js/adminlte.min.js', 'public/asset/admin/dist/js/adminlte.min.js');
 
 

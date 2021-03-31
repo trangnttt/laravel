@@ -1,6 +1,7 @@
 @extends('admin.layouts.login')
 
 @section('content')
+
 <div class="login-box">
   <div class="login-logo">
     <h3>SIGNIN ADMIN</h3>
@@ -8,32 +9,37 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      
+      <!-- <div class="text-center text-danger"> 
+        <span>{{ $errors->first('email') }}  {{ $errors->first('password') }}</span>
+      </div> -->
       <p class="login-box-msg">Sign in to start your session</p>
-      <div class="text-center text-danger">
-      <span>{{ $errors->first('email') }} <br> {{ $errors->first('password') }}</span>
-      </div>
       <form method="POST" action="{{ route('admin.login') }}">
         @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          @error('email')
+            <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+          @enderror
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" value="{{ old('password') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
+          @error('password')
+                <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                @enderror
         </div>
         <div class="row">
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block" id="login-form">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>

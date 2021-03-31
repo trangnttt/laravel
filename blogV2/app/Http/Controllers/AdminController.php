@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Admin;
+use Session;
 
 class AdminController extends Controller
 {
@@ -52,32 +54,71 @@ class AdminController extends Controller
 
     public function adminLogin(Request $request)
     {
-        // $a = $this->validate($request, [
-        //     'email'   => 'required|email',
-        //     'password' => 'required|min:6'
-        // ]);
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|password',
-        ]);
+        $rules = array(
+            'email'      => 'required|email',
+            'password' => 'required|min:6'
+        );
+
+        $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             return redirect('admin/login')
-                        ->withErrors($validator)
-                        ->withInput();
-            // return view('admin.auth.login');
+            ->withInput($request->input())
+                ->withErrors($validator);
+        } 
+
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin');
         }
-       
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
-   
-            return redirect('/admin');
-        }   
 
-        // if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+        else {
+            return back()->
+            withInput($request->input()) ->
+            withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
+        }
 
-        //     return redirect()->intended('/admin');
-        // }
-        return back()->withInput($request->only('email', 'remember'));
+        
 
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('admin') -> logout();
+        return redirect('admin/login');
+    }
+
+    public function createMember() {
+        return view('admin.page.member.add');
+    }
+
+    public function storeMember(Request $request) {
+
+        $rules = array(
+            'name'       => 'required',
+            'email'      => 'required|email|unique:admins',
+            'password' => 'required|min:6'
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return redirect('admin/member/add')
+            ->withInput($request->input())
+                ->withErrors($validator);
+        } 
+        else {
+            $Admin = new Admin;
+            $Admin->name = $request->name;
+            $Admin->email = $request->email;
+            $Admin->password = $request->password;
+            $Admin->save();
+            Session::flash('message', 'Successfully created member!');
+            return redirect('admin/member/add');
+        }
+
+        
     }
     /**
      * Show the application dashboard.
