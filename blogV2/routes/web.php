@@ -25,43 +25,50 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group( [ 'prefix' => 'admin'], function()
 {
-    Route::get('login', [App\Http\Controllers\AdminController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('login', [App\Http\Controllers\AdminController::class, 'adminLogin'])->name('admin.login');
-    Route::get('logout', [App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
-
-    Route::get('logout', [App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
+    // login
+    Route::get('login', [App\Http\Controllers\Admin\AdminController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('login', [App\Http\Controllers\Admin\AdminController::class, 'adminLogin'])->name('admin.login');
+   
+    // logout
+    Route::get('logout', [App\Http\Controllers\Admin\AdminController::class, 'logout'])->name('admin.logout');
+    Route::get('logout', [App\Http\Controllers\Admin\AdminController::class, 'logout'])->name('admin.logout');
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/', function () {
             return view('admin.home');
         });
     
+
+        // categogy
         Route::get('/category/add', function () {
             return view('admin.page.category.add');
-        })->name('admin.categoryAdd');
+        })->name('admin.category.add');
     
         Route::get('/category/list', function () {
             return view('admin.page.category.list');
-        })->name('admin.categoryList');
+        })->name('admin.category.list');
         
+
+        // post
         Route::get('/post/add', function () {
             return view('admin.page.post.add');
-        })->name('admin.postAdd');
+        })->name('admin.post.add');
     
         Route::get('/post/list', function () {
             return view('admin.page.post.list');
-        })->name('admin.postList');
+        })->name('admin.post.list');
 
-        Route::get('/member/add', [App\Http\Controllers\AdminController::class, 'createMember'])->name('admin.memberAdd');
-        Route::post('/member/add', [App\Http\Controllers\AdminController::class, 'storeMember'])->name('admin.memberAdd');
         
-        // Route::get('/member/add', function () {
-        //     return view('admin.page.member.add');
-        // });
-    
-        Route::get('/member/list', function () {
-            return view('admin.page.member.list');
-        })->name('admin.memberList');
+
+        // member
+        Route::get('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'createMember'])->name('admin.member.add');
+        Route::post('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'storeMember'])->name('admin.member.add');
+        
+        Route::get('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'editMember'])->name('admin.member.edit');
+        Route::post('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'updateMember'])->name('admin.member.edit');
+        
+
+        Route::get('/member', [App\Http\Controllers\Admin\MemberController::class, 'index'])->name('admin.member.list');
     });
 
     

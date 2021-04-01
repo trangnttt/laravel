@@ -3,6 +3,17 @@
 @section('content')
 
 <div class="content-wrapper" style="min-height: 1203.6px;">
+
+@if (Session::has('message'))
+  @component('components.alert')
+    @slot('class')
+    success
+    @endslot
+    @slot('title')
+    {{ Session::get('message') }}
+    @endslot
+@endcomponent
+@endif
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -33,20 +44,22 @@
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Password</th>
                   <th scope="col">Edit</th>
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody>
+              @php 
+                $i = 1;
+              @endphp
+              @foreach($data as $key => $value)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto@gmail.com</td>
-                  <td>@mdo</td>
+                  <th scope="row">{{ $i++ }}</th>
+                  <td>{{ $value->name }}</td>
+                  <td>{{ $value->email }}</td>
                   <td style="text-align: center;">
                     <span class="badge bg-primary">
-                      <a href="">
+                      <a href="{{ URL('admin/member/edit/' . $value->id) }}">
                         <ion-icon name="create-outline"></ion-icon>
                       </a>
                     </span>
@@ -60,6 +73,7 @@
                     </span>
                   </td>
                 </tr>
+              @endforeach
               </tbody>
             </table>
           </div>

@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -31,17 +31,7 @@ class AdminController extends Controller
      */
 
     protected $redirectTo = '/admin/home';
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-
-    public function __construct()
-    {
-        // $this->middleware('guest:admin')->except('logout');
-    }
-
+ 
     public function guard()
     {
         return Auth::guard('admin');
@@ -79,9 +69,6 @@ class AdminController extends Controller
                 'email' => 'The provided credentials do not match our records.',
             ]);
         }
-
-        
-
     }
 
     public function logout(Request $request)
@@ -90,36 +77,6 @@ class AdminController extends Controller
         return redirect('admin/login');
     }
 
-    public function createMember() {
-        return view('admin.page.member.add');
-    }
-
-    public function storeMember(Request $request) {
-
-        $rules = array(
-            'name'       => 'required',
-            'email'      => 'required|email|unique:admins',
-            'password' => 'required|min:6'
-        );
-
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return redirect('admin/member/add')
-            ->withInput($request->input())
-                ->withErrors($validator);
-        } 
-        else {
-            $Admin = new Admin;
-            $Admin->name = $request->name;
-            $Admin->email = $request->email;
-            $Admin->password = $request->password;
-            $Admin->save();
-            Session::flash('message', 'Successfully created member!');
-            return redirect('admin/member/add');
-        }
-
-        
-    }
     /**
      * Show the application dashboard.
      *

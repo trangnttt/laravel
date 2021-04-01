@@ -163,13 +163,13 @@
            </a>
            <ul class="nav nav-treeview">
              <li class="nav-item">
-               <a href="{{ route('admin.categoryAdd') }}" class="nav-link">
+               <a href="{{ route('admin.category.add') }}" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Add</p>
                </a>
              </li>
              <li class="nav-item">
-               <a href="{{ route('admin.categoryList') }}" class="nav-link">
+               <a href="{{ route('admin.category.list') }}" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>List</p>
                </a>
@@ -187,13 +187,13 @@
            </a>
            <ul class="nav nav-treeview">
              <li class="nav-item">
-               <a href="{{ route('admin.postAdd') }}" class="nav-link">
+               <a href="{{ route('admin.post.add') }}" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Add</p>
                </a>
              </li>
              <li class="nav-item">
-               <a href="{{ route('admin.postList') }}" class="nav-link">
+               <a href="{{ route('admin.post.list') }}" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>List</p>
                </a>
@@ -211,13 +211,13 @@
            </a>
            <ul class="nav nav-treeview">
              <li class="nav-item">
-               <a href="{{ route('admin.memberAdd') }}" class="nav-link">
+               <a href="{{ route('admin.member.add') }}" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Add</p>
                </a>
              </li>
              <li class="nav-item">
-               <a href="{{ route('admin.memberList') }}" class="nav-link">
+               <a href="{{ route('admin.member.list') }}" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>List</p>
                </a>

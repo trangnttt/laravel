@@ -3,17 +3,6 @@
 @section('content')
 
 <div class="content-wrapper">
-
-@if (Session::has('message'))
-  @component('admin.components.alert')
-    @slot('class')
-    success
-    @endslot
-    @slot('title')
-    {{ Session::get('message') }}
-    @endslot
-@endcomponent
-  @endif
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
@@ -72,7 +61,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Create</button>
             </div>
           </form>
         </div>
