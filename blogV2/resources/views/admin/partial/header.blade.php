@@ -135,7 +135,7 @@
            alt="User Image">
        </div>
        <div class="info">
-         <a href="#" class="d-block">Name</a>
+         <a href="#" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
        </div>
      </div>
 

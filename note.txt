@@ -1,0 +1,8 @@
+document
+https://docs.google.com/document/d/15UCap35mB5F7trq0Ghygc0dj4qtbcSoNaSFY7Gixmo8/edit?ts=604818db
+
+mvc
+https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers
+
+editor
+https://www.nicesnippets.com/blog/laravel-summernote-image-upload-example

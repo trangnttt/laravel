@@ -58,7 +58,7 @@ class AdminController extends Controller
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
             $request->session()->regenerate();
-
+        
             return redirect()->intended('/admin');
         }
 

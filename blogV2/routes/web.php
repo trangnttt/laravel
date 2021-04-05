@@ -31,7 +31,6 @@ Route::group( [ 'prefix' => 'admin'], function()
    
     // logout
     Route::get('logout', [App\Http\Controllers\Admin\AdminController::class, 'logout'])->name('admin.logout');
-    Route::get('logout', [App\Http\Controllers\Admin\AdminController::class, 'logout'])->name('admin.logout');
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/', function () {
@@ -59,7 +58,6 @@ Route::group( [ 'prefix' => 'admin'], function()
         })->name('admin.post.list');
 
         
-
         // member
         Route::get('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'createMember'])->name('admin.member.add');
         Route::post('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'storeMember'])->name('admin.member.add');
@@ -67,8 +65,10 @@ Route::group( [ 'prefix' => 'admin'], function()
         Route::get('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'editMember'])->name('admin.member.edit');
         Route::post('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'updateMember'])->name('admin.member.edit');
         
+        Route::get('/member/delete/{id}', [App\Http\Controllers\Admin\MemberController::class, 'destroy'])->name('admin.member.delete');
 
         Route::get('/member', [App\Http\Controllers\Admin\MemberController::class, 'index'])->name('admin.member.list');
+
     });
 
     

@@ -80,7 +80,8 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js', 'public/asset/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')
     .copy('resources/asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js', 'public/asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')
     .copy('resources/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js', 'public/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')    
-    .copy('resources/asset/admin/dist/js/adminlte.min.js', 'public/asset/admin/dist/js/adminlte.min.js');
+    .copy('resources/asset/admin/dist/js/adminlte.min.js', 'public/asset/admin/dist/js/adminlte.min.js')
+    .copy('resources/asset/admin/plugins/summernote/summernote-bs4.min.js', 'public/asset/admin/plugins/summernote/summernote-bs4.min.js');
 
 
 mix.copyDirectory('resources/asset/client/img', 'public/asset/client/img');
@@ -89,3 +90,4 @@ mix.copyDirectory('resources/asset/client/fonts', 'public/asset/client/fonts');
 mix.copyDirectory('resources/asset/admin/dist/img', 'public/asset/admin/dist/img');
 mix.copyDirectory('resources/asset/admin/plugins/fontawesome-free', 'public/asset/admin/plugins/fontawesome-free');
 
+mix.copyDirectory('resources/asset/admin/plugins/summernote', 'public/asset/admin/plugins/summernote');

@@ -59,6 +59,7 @@ class MemberController extends Controller
         
         if ($validator->fails()) {
             return redirect('admin/member/edit/'.$id)
+            
             ->withInput($request->input())
                 ->withErrors($validator);
         } 
@@ -73,12 +74,47 @@ class MemberController extends Controller
         }
     }
 
-    public function index()
+    public function destroy($id)
+    {
+        $Admin = Admin::find($id);
+        $Admin->delete();
+        Session::flash('message', 'Successfully deleted the member!');
+        return redirect('admin/member');
+    }
+
+    public function search(Request $request){
+        
+        $search =  $request->input('query');
+        $obj = new Admin;
+
+        $data = $obj
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('email', 'LIKE', "%{$search}%")
+            ->paginate(5);
+
+        return view('admin.page.member.index', compact('data'));
+    }
+
+    public function index(Request $request)
     {
         $userIdCurrent = Auth::guard('admin')->user()->id;
         $obj = new Admin;
-        $data = $obj->get();
+        $search =  $request->query('search');
+        
+        if(!empty($search)) {
+            $data = $obj
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('email', 'LIKE', "%{$search}%")
+            ->paginate(5)->appends(['search' => $request->search]);
+        }
+
+        else {
+            $data = $obj->where('id', '<>', $userIdCurrent)
+            ->paginate(5);
+           
+        }
         return view('admin.page.member.index', compact('data'));
+      
     }
 
 }
