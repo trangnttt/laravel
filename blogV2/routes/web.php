@@ -43,9 +43,15 @@ Route::group( [ 'prefix' => 'admin'], function()
             return view('admin.page.category.add');
         })->name('admin.category.add');
     
-        Route::get('/category/list', function () {
-            return view('admin.page.category.list');
-        })->name('admin.category.list');
+        // Route::get('/category/list', function () {
+        //     return view('admin.page.category.list');
+        // })->name('admin.category.list');
+
+        Route::get('/category/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('admin.category.add');
+        Route::post('/category/create', [App\Http\Controllers\CategoryController::class, 'store'])->name('admin.category.add');
+        
+
+        Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('admin.category.list');
         
 
         // post
@@ -59,11 +65,11 @@ Route::group( [ 'prefix' => 'admin'], function()
 
         
         // member
-        Route::get('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'createMember'])->name('admin.member.add');
-        Route::post('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'storeMember'])->name('admin.member.add');
+        Route::get('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'create'])->name('admin.member.add');
+        Route::post('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'store'])->name('admin.member.add');
         
-        Route::get('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'editMember'])->name('admin.member.edit');
-        Route::post('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'updateMember'])->name('admin.member.edit');
+        Route::get('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'edit'])->name('admin.member.edit');
+        Route::post('/member/edit/{id}', [App\Http\Controllers\Admin\MemberController::class, 'update'])->name('admin.member.edit');
         
         Route::get('/member/delete/{id}', [App\Http\Controllers\Admin\MemberController::class, 'destroy'])->name('admin.member.delete');
 

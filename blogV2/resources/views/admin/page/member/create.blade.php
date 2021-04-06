@@ -3,6 +3,18 @@
 @section('content')
 
 <div class="content-wrapper">
+
+@if (Session::has('message'))
+  @component('components.alert')
+  @slot('class')
+  success
+  @endslot
+  @slot('title')
+  {{ Session::get('message') }}
+  @endslot
+  @endcomponent
+@endif
+
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">

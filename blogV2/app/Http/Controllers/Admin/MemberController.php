@@ -14,11 +14,11 @@ use Session;
 class MemberController extends Controller
 {
     
-    public function createMember() {
+    public function create() {
         return view('admin.page.member.create');
     }
 
-    public function storeMember(Request $request) {
+    public function store(Request $request) {
 
         $rules = array(
             'name'       => 'required',
@@ -43,12 +43,12 @@ class MemberController extends Controller
         }
     }
 
-    public function editMember($id) {
+    public function edit($id) {
         $data = Admin::find($id);
         return view('admin.page.member.edit', compact('data'));
     }
 
-    public function updateMember($id, Request $request) {
+    public function update($id, Request $request) {
         $rules = array(
             'name'       => 'required',
             'email'      => 'required|email|unique:admins,email,'.$id,
