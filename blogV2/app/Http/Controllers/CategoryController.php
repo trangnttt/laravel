@@ -24,7 +24,6 @@ class CategoryController extends Controller
         return view('admin.page.category.index')->with([
           'categories'  => $categories
         ]);
-        // return view('admin.page.category.index');
     }
 
     /**
@@ -71,17 +70,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -89,7 +77,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
     }
 
     /**

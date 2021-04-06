@@ -49,7 +49,11 @@ Route::group( [ 'prefix' => 'admin'], function()
 
         Route::get('/category/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('admin.category.add');
         Route::post('/category/create', [App\Http\Controllers\CategoryController::class, 'store'])->name('admin.category.add');
+         
+        Route::get('/category/edit/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('admin.category.edit');
+        // Route::post('/category/edit/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('admin.category.edit');
         
+
 
         Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('admin.category.list');
         
