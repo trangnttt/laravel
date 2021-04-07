@@ -78,6 +78,8 @@ Route::group( [ 'prefix' => 'admin'], function()
         Route::get('/member/delete/{id}', [App\Http\Controllers\Admin\MemberController::class, 'destroy'])->name('admin.member.delete');
 
         Route::get('/member', [App\Http\Controllers\Admin\MemberController::class, 'index'])->name('admin.member.list');
+        Route::get('member/search', [App\Http\Controllers\Admin\MemberController::class, 'index'])->name('admin.search');
+
 
     });
 

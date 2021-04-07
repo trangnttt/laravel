@@ -77,7 +77,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        dd($id);
+        $categories = Category::find($id);
+        return view('admin.page.category.edit', compact('categories'));
     }
 
     /**

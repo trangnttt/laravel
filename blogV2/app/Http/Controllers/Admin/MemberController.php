@@ -82,25 +82,11 @@ class MemberController extends Controller
         return redirect('admin/member');
     }
 
-    public function search(Request $request){
-        
-        $search =  $request->input('query');
-        $obj = new Admin;
-
-        $data = $obj
-            ->where('name', 'LIKE', "%{$search}%")
-            ->orWhere('email', 'LIKE', "%{$search}%")
-            ->paginate(5);
-
-        return view('admin.page.member.index', compact('data'));
-    }
-
     public function index(Request $request)
     {
         $userIdCurrent = Auth::guard('admin')->user()->id;
         $obj = new Admin;
-        $search =  $request->query('search');
-        
+        $search =  $request->query('query');
         if(!empty($search)) {
             $data = $obj
             ->where('name', 'LIKE', "%{$search}%")
