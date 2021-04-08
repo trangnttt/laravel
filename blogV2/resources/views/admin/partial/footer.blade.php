@@ -51,6 +51,16 @@ $.widget.bridge('uibutton', $.ui.button)
 <!-- Summernote -->
 <script src="{{ asset('asset/admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
 
+
+@push('scripts')
+<script>
+$(".toast").fadeTo(2000, 500).slideDown(500, function() {
+  $(".toast").slideUp(300);
+});
+</script>
+@endpush
+
 </body>
 
 </html>
+

@@ -84,11 +84,3 @@
 </div>
 <!-- /.content-wrapper -->
 @endsection
-
-@push('scripts')
-<script>
-$("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-  $("#success-alert").slideUp(500);
-});
-</script>
-@endpush

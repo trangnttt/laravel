@@ -35,9 +35,7 @@ Route::group( [ 'prefix' => 'admin'], function()
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/', function () {
             return view('admin.home');
-        });
-    
-
+        })->name('admin.home');
         // categogy
         Route::get('/category/add', function () {
             return view('admin.page.category.add');
@@ -47,15 +45,15 @@ Route::group( [ 'prefix' => 'admin'], function()
         //     return view('admin.page.category.list');
         // })->name('admin.category.list');
 
-        Route::get('/category/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('admin.category.add');
-        Route::post('/category/create', [App\Http\Controllers\CategoryController::class, 'store'])->name('admin.category.add');
+        Route::get('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin.category.add');
+        Route::post('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('admin.category.add');
          
-        Route::get('/category/edit/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('admin.category.edit');
-        // Route::post('/category/edit/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('admin.category.edit');
+        Route::post('/category/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('admin.category.edit');
         
+        Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('admin.category.delete');
 
 
-        Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('admin.category.list');
+        Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin.category');
         
 
         // post

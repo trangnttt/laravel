@@ -1,3 +1,6 @@
+@php
+  $currentRouter = Route::currentRouteName();
+@endphp
  <!-- Navbar -->
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
    <!-- Left navbar links -->
@@ -145,7 +148,7 @@
          <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
          <li class="nav-item has-treeview">
-           <a href="index.php" class="nav-link active">
+           <a href="{{ route('admin.home') }}" class="nav-link {{ $currentRouter === 'admin.home'  ? ' active' : '' }}">
              <i class="nav-icon fas fa-tachometer-alt"></i>
              <p>
                Home
@@ -153,28 +156,12 @@
            </a>
          </li>
          <li class="nav-item has-treeview">
-           <a href="#" class="nav-link">
+           <a href="{{ route('admin.category') }}" class="nav-link {{ $currentRouter === 'admin.category'  ? ' active' : '' }}">
              <i class="nav-icon fas fa-copy"></i>
              <p>
-               Category
-               <i class="fas fa-angle-left right"></i>
-               <span class="badge badge-info right">6</span>
+             Category
              </p>
            </a>
-           <ul class="nav nav-treeview">
-             <li class="nav-item">
-               <a href="{{ route('admin.category.add') }}" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
-                 <p>Add</p>
-               </a>
-             </li>
-             <li class="nav-item">
-               <a href="{{ route('admin.category.list') }}" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
-                 <p>List</p>
-               </a>
-             </li>
-           </ul>
          </li>
          <li class="nav-item has-treeview">
            <a href="#" class="nav-link">
@@ -211,13 +198,13 @@
            </a>
            <ul class="nav nav-treeview">
              <li class="nav-item">
-               <a href="{{ route('admin.member.add') }}" class="nav-link">
+               <a href="{{ route('admin.member.add') }}" class="nav-link {{ $currentRouter === 'admin.member.add'  ? ' active' : '' }}">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Add</p>
                </a>
              </li>
              <li class="nav-item">
-               <a href="{{ route('admin.member.list') }}" class="nav-link">
+               <a href="{{ route('admin.member.list') }}" class="nav-link {{ $currentRouter === 'admin.member.list'  ? ' active' : '' }}">
                  <i class="far fa-circle nav-icon"></i>
                  <p>List</p>
                </a>
