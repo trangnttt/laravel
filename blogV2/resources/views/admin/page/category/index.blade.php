@@ -19,7 +19,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>List Category</h1>
+          <h1>Category</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -34,9 +34,9 @@
     <div class="col-12">
       <div class="row">
         <div class="col-xs-12 col-md-7">
-          <div class="card">
+          <div class="card card-success">
             <div class="card-header">
-              <h3>Categories</h3>
+              <h3 class="card-title">Categories List</h3>
             </div>
             <div class="card-body">
               <ul class="list-group">
@@ -91,9 +91,9 @@
         </div>
 
         <div class="col-xs-12 col-md-5">
-          <div class="card">
+          <div class="card card-primary">
             <div class="card-header">
-                <h3>Create Category</h3>
+                <h3 class="card-title">Create Category</h3>
             </div>
             <div class="card-body">
               <form action="{{ route('admin.category.add') }}" method="POST">

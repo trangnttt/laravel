@@ -37,13 +37,6 @@ Route::group( [ 'prefix' => 'admin'], function()
             return view('admin.home');
         })->name('admin.home');
         // categogy
-        Route::get('/category/add', function () {
-            return view('admin.page.category.add');
-        })->name('admin.category.add');
-    
-        // Route::get('/category/list', function () {
-        //     return view('admin.page.category.list');
-        // })->name('admin.category.list');
 
         Route::get('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin.category.add');
         Route::post('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('admin.category.add');
@@ -57,9 +50,9 @@ Route::group( [ 'prefix' => 'admin'], function()
         
 
         // post
-        Route::get('/post/add', function () {
-            return view('admin.page.post.add');
-        })->name('admin.post.add');
+        Route::get('/post/create', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('admin.post.add');
+        Route::post('/post/create', [App\Http\Controllers\Admin\PostController::class, 'store'])->name('admin.post.add');
+         
     
         Route::get('/post/list', function () {
             return view('admin.page.post.list');

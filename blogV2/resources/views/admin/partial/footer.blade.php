@@ -51,6 +51,7 @@ $.widget.bridge('uibutton', $.ui.button)
 <!-- Summernote -->
 <script src="{{ asset('asset/admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
 
+<script src="{{ asset('asset/admin/dist/js/avatar.js')}}"></script>
 
 @push('scripts')
 <script>

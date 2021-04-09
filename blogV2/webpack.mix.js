@@ -40,10 +40,8 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/plugins/summernote/summernote-bs4.css', 'public/asset/admin/plugins/summernote/summernote-bs4.css')
     .copy('resources/asset/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css', 'public/asset/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')
     .copy('resources/asset/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css', 'public/asset/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')
+    .copy('resources/asset/admin/style.css', 'public/asset/admin/style.css')
 
-
-    
-    
 
     .copy('resources/asset/client/js/jquery-2.2.4.min.js', 'public/asset/client/js/jquery-2.2.4.min.js')
     .copy('resources/asset/client/js/plugins.js', 'public/asset/client/js/plugins.js')
@@ -81,7 +79,8 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js', 'public/asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')
     .copy('resources/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js', 'public/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')    
     .copy('resources/asset/admin/dist/js/adminlte.min.js', 'public/asset/admin/dist/js/adminlte.min.js')
-    .copy('resources/asset/admin/plugins/summernote/summernote-bs4.min.js', 'public/asset/admin/plugins/summernote/summernote-bs4.min.js');
+    .copy('resources/asset/admin/plugins/summernote/summernote-bs4.min.js', 'public/asset/admin/plugins/summernote/summernote-bs4.min.js')
+    .copy('resources/asset/admin/dist/js/avatar.js', 'public/asset/admin/dist/js/avatar.js');
 
 
 mix.copyDirectory('resources/asset/client/img', 'public/asset/client/img');
