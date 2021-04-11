@@ -52,13 +52,14 @@ Route::group( [ 'prefix' => 'admin'], function()
         // post
         Route::get('/post/create', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('admin.post.add');
         Route::post('/post/create', [App\Http\Controllers\Admin\PostController::class, 'store'])->name('admin.post.add');
-         
-    
-        Route::get('/post/list', function () {
-            return view('admin.page.post.list');
-        })->name('admin.post.list');
-
         
+        Route::get('/post/edit/{slug}', [App\Http\Controllers\Admin\PostController::class, 'edit'])->name('admin.post.edit');
+        // Route::post('/post/edit/{id}', [App\Http\Controllers\Admin\PostController::class, 'update'])->name('admin.post.edit');
+        
+
+        Route::get('/post/list', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.post.list');
+
+
         // member
         Route::get('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'create'])->name('admin.member.add');
         Route::post('/member/create', [App\Http\Controllers\Admin\MemberController::class, 'store'])->name('admin.member.add');

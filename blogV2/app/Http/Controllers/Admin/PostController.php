@@ -21,8 +21,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $posts = Post::latest()->paginate(2);
+        return view('admin.page.post.index', compact('posts'));
     }
 
     /**
@@ -44,8 +45,64 @@ class PostController extends Controller
      */
     public function uploadImage(Request $request)
     {
+        // $rules = array(
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // );
+
+        // $validator = Validator::make($request->all(), $rules);
+        // if ($validator->fails()) {
+        //     return redirect('admin/post/create')
+        //     ->withInput($request->input())
+        //         ->withErrors($validator);
+        // } 
+        // else {
+        //     dd('ttt');
+        // }
+        
+        // $imageName = time().'.'.$request->image->getClientOriginalExtension();        
+        // $request->image->move(public_path('images'), $imageName);
+    
+        $content=$request->content;
+        $dom = new \DomDocument();
+        $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+        $images = $dom->getElementsByTagName('img');
+
+        foreach($images as $k => $img){
+            $data = $img->getAttribute('src');
+
+            list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
+            $data = base64_decode($data);
+
+            $image_name= "/upload/" . time().$k.'.png';
+            dd($image_name);
+            $path = public_path() . $image_name;
+
+           
+            file_put_contents($path, $data);
+            
+            $img->removeAttribute('src');
+            $img->setAttribute('src', $image_name);
+        }
+
+        // $dom->saveHTML();
+    }
+
+    /*
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $rules = array(
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title'         => 'required|min:3|max:255',
+            'slug'          => 'required|min:3|max:255|unique:posts',
+            // 'image'         => 'sometimes|image',
+            // 'content'         => 'required',
+            // 'category_id'   => 'required|numeric',
+            // 'description'   => 'required|min:3'
         );
 
         $validator = Validator::make($request->all(), $rules);
@@ -55,73 +112,25 @@ class PostController extends Controller
                 ->withErrors($validator);
         } 
         else {
-            dd('ttt');
-        }
-    
-        // $imageName = time().'.'.$request->image->getClientOriginalExtension();  
-        // $request->image->move(public_path('images'), $imageName);
-
-     
-        
-        // $content=$request->content;
-        // $dom = new \DomDocument();
-        // $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
-        // $images = $dom->getElementsByTagName('img');
-
-        // foreach($images as $k => $img){
-        //     $data = $img->getAttribute('src');
-
-        //     list($type, $data) = explode(';', $data);
-        //     list(, $data)      = explode(',', $data);
-        //     $data = base64_decode($data);
-
-        //     $image_name= "/upload/" . time().$k.'.png';
-        //     $path = public_path() . $image_name;
-           
-        //     file_put_contents($path, $data);
+            $post = new Post();        
+            $post->title = $request->title;
+            $post->description = $request->description;
+            $post->slug = $request->slug;
+            $post->category_id = $request->category_id;
+            $post->user_id = Auth::guard('admin')->user()->id;
             
-        //     $img->removeAttribute('src');
-        //     $img->setAttribute('src', $image_name);
-        // }
-
-        // $dom->saveHTML();
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $post = new Post();
-        
-        $post->title = $request->title;
-      
-        $post->description = $request->description;
-   
-        $post->category_id = $request->category_id;
-
-        $userIdCurrent = Auth::guard('admin')->user()->id;
- 
-        $post->slug = str_slug($post->title , "-");
-
-    
-        dd($post->slug);
-        
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+            if(isset($request->image)){
+                $imageName = time().'.'.$request->image->getClientOriginalExtension();        
+                $request->image->move(public_path('images'), $imageName);
+                $post->image = $imageName;
+            }
+            $post->content = $request->content;
+            
+            $post->save();
+            Session::flash('message', 'Successfully created post!');
+            // return redirect('admin/post/list');
+            return redirect(route('admin.post.list', [$post->slug]));
+        }
     }
 
     /**
@@ -130,9 +139,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(string $slug,Post $post)
     {
-        //
+        $post = Post::where('slug', $slug)->first();
+
+        $categories = Category::with('children')->whereNull('parent_id')->get();
+        return view('admin.page.post.edit')
+                ->withPost($post)
+                ->withCategories($categories);
     }
 
     /**

@@ -24,7 +24,7 @@ class CreateTablePostsTable extends Migration
 
             $table->binary('image')->nullable(); 
             $table->string('description')->nullable(); 
-            $table->string('content')->nullable();   
+            $table->text('content')->nullable();   
             $table->timestamps();
         });
 
