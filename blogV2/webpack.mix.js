@@ -80,7 +80,8 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js', 'public/asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')    
     .copy('resources/asset/admin/dist/js/adminlte.min.js', 'public/asset/admin/dist/js/adminlte.min.js')
     .copy('resources/asset/admin/plugins/summernote/summernote-bs4.min.js', 'public/asset/admin/plugins/summernote/summernote-bs4.min.js')
-    .copy('resources/asset/admin/dist/js/avatar.js', 'public/asset/admin/dist/js/avatar.js');
+    .copy('resources/asset/admin/dist/js/avatar_post.js', 'public/asset/admin/dist/js/avatar_post.js')
+    .copy('resources/asset/admin/dist/js/convert_slug.js', 'public/asset/admin/dist/js/convert_slug.js');
 
 
 mix.copyDirectory('resources/asset/client/img', 'public/asset/client/img');

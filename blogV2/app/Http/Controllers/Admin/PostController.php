@@ -75,7 +75,6 @@ class PostController extends Controller
             $data = base64_decode($data);
 
             $image_name= "/upload/" . time().$k.'.png';
-            dd($image_name);
             $path = public_path() . $image_name;
 
            
@@ -125,10 +124,8 @@ class PostController extends Controller
                 $post->image = $imageName;
             }
             $post->content = $request->content;
-            
             $post->save();
             Session::flash('message', 'Successfully created post!');
-            // return redirect('admin/post/list');
             return redirect(route('admin.post.list', [$post->slug]));
         }
     }
@@ -156,9 +153,34 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $slug)
     {
-        //
+        $post = Post::where('slug', $slug)->first();
+
+        $rules = array(
+            'title'         => 'required|min:3|max:255',
+            'slug'          => 'required|min:3|max:255|unique:posts',
+        );
+    
+        $validator = Validator::make($request->all(), $rules);
+        
+        if ($validator->fails()) {
+            return redirect('admin/post/edit/'.$slug)
+            
+            ->withInput($request->input())
+                ->withErrors($validator);
+        } 
+        else {
+            $post->title = $request->title;
+            $post->description = $request->description;
+            $post->slug = $request->slug;
+            $post->category_id = $request->category_id;
+            $post->user_id = Auth::guard('admin')->user()->id;
+            $post->content = $request->content;
+            $post->save();
+            Session::flash('message', 'Successfully updated post!');
+            return redirect(route('admin.post.list', [$post->slug]));
+        }
     }
 
     /**
@@ -169,6 +191,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $posts = Post::find($id);
+        $posts->delete();
+        Session::flash('message', 'Successfully deleted the post!');
+        return redirect('admin/post/list');
     }
 }

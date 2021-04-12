@@ -54,8 +54,9 @@ Route::group( [ 'prefix' => 'admin'], function()
         Route::post('/post/create', [App\Http\Controllers\Admin\PostController::class, 'store'])->name('admin.post.add');
         
         Route::get('/post/edit/{slug}', [App\Http\Controllers\Admin\PostController::class, 'edit'])->name('admin.post.edit');
-        // Route::post('/post/edit/{id}', [App\Http\Controllers\Admin\PostController::class, 'update'])->name('admin.post.edit');
+        Route::post('/post/edit/{slug}', [App\Http\Controllers\Admin\PostController::class, 'update'])->name('admin.post.edit');
         
+        Route::get('/post/delete/{id}', [App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('admin.post.delete');
 
         Route::get('/post/list', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.post.list');
 

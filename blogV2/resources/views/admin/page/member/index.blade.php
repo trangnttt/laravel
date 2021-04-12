@@ -53,12 +53,9 @@
               </thead>
               @if($data->isNotEmpty())
               <tbody>
-                @php
-                $i = 1;
-                @endphp
                 @foreach($data as $key => $value)
                 <tr>
-                  <th scope="row">{{ $i++ }}</th>
+                  <th scope="row">{{ $data->firstItem() + $key }}</th>
                   <td>{{ $value->name }}</td>
                   <td>{{ $value->email }}</td>
                   <td style="text-align: center;">

@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <label>Content</label>
                             <textarea name="content" class="textarea" placeholder="Place some text here"
-                                style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                            class="editor"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
@@ -110,15 +110,3 @@
 </div>
 
 @endsection
-
-@push('scripts')
-<script>
-$('input[name="title"]').change(function() {
-    var txtSlug = $(this).val();
-    txtSlug = txtSlug.replace(" ", "-");
-    txtSlug = txtSlug.toLowerCase();
-    $('input[name="slug"]').val(txtSlug);
-
-});
-</script>
-@endpush

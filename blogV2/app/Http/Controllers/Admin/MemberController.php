@@ -86,7 +86,7 @@ class MemberController extends Controller
     {
         $userIdCurrent = Auth::guard('admin')->user()->id;
         $obj = new Admin;
-        $search =  $request->query('query');
+        $search =  $request->query('search');
         if(!empty($search)) {
             $data = $obj
             ->where('name', 'LIKE', "%{$search}%")

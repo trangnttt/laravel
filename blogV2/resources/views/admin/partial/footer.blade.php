@@ -50,8 +50,10 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{ asset('asset/admin/dist/js/demo.js')}}"></script>
 <!-- Summernote -->
 <script src="{{ asset('asset/admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
-
-<script src="{{ asset('asset/admin/dist/js/avatar.js')}}"></script>
+<!-- Image first of post -->
+<script src="{{ asset('asset/admin/dist/js/avatar_post.js')}}"></script>
+<!-- Convert slug -->
+<script src="{{ asset('asset/admin/dist/js/convert_slug.js')}}"></script>
 
 @push('scripts')
 <script>

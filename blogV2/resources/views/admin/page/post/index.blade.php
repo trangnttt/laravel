@@ -60,9 +60,9 @@
                                         @php
                                         $i = 1;
                                         @endphp
-                                        @foreach ($posts as $post)
+                                        @foreach ($posts as $key => $post)
                                         <tr>
-                                            <th scope="row">{{$i++}}</th>
+                                            <th scope="row">{{ $posts->firstItem() + $key}}</th>
                                             <td>
                                                 @if(isset($post->image))
                                                 <img style="width:100px"
@@ -91,12 +91,12 @@
                                             </td>
                                             <td style="text-align: center;">
                                                 <a class="btn btn-danger btn-sm" href="#" data-toggle="modal"
-                                                    data-target="#modal-default">
+                                                    data-target="#modal-delete{{ $post->id }}">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                        <div class="modal fade show" id="modal-default" style="padding-right: 17px;"
+                                        <div class="modal fade show" id="modal-delete{{ $post->id }}" style="padding-right: 17px;"
                                             aria-modal="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -110,14 +110,14 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <p class="text-center" style="color: #ad2e2e;">Are you sure to
-                                                            delete member
-                                                            "<strong>aa</strong>" </p>
+                                                            delete post <br>
+                                                            "<strong>{{ $post->title }}</strong>" </p>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                         <div style="margin:auto">
                                                             <a href="#" class="btn btn-success"
                                                                 data-dismiss="modal">Cancel</a>
-                                                            <a href="#" class="btn btn-primary btn-danger">Yes,
+                                                            <a href="{{ URL('admin/post/delete/' . $post->id) }}" class="btn btn-primary btn-danger">Yes,
                                                                 delete</a>
                                                         </div>
                                                     </div>
