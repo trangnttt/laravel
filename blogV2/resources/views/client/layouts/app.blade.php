@@ -42,9 +42,13 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('asset/client/style.css') }}">
   <!-- For IE -->
-  <link rel="stylesheet" type="text/css') }}" href="{{ asset('asset/client/css/ie-only.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('asset/client/css/ie-only.css') }}" />
+  <!-- Nivo Slider CSS-->
+  <link rel="stylesheet" href="{{ asset('asset/client/vendor/slider/css/nivo-slider.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('asset/client/vendor/slider/css/preview.css')}}" type="text/css" media="screen" />
   <!-- Modernizr Js -->
   <script src="{{ asset('asset/client/js/modernizr-2.8.3.min.js') }}"></script>
+
 </head>
 <body>
   <div id="preloader"></div>
@@ -53,53 +57,6 @@
     <!-- Header Area Start Here -->
     @include('client.partial.header')
 
-    <!-- News Feed Area Start Here -->
-    <section class="bg-accent border-bottom add-top-margin">
-      <div class="container">
-        <div class="row no-gutters d-flex align-items-center">
-          <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-            <div class="topic-box topic-box-margin">Top Stories</div>
-          </div>
-          <div class="col-lg-10 col-md-9 col-sm-8 col-6">
-            <div class="feeding-text-dark">
-              <ol id="sample" class="ticker">
-                <li>
-                  <a href="#">McDonell Kanye West highlights difficulties for celebritiesComplimentary decor and
-                    design advicewith Summit Park homes</a>
-                </li>
-                <li>
-                  <a href="#">Magnificent Image Of The New Hoover Dam Bridge Taking Shape</a>
-                </li>
-                <li>
-                  <a href="#">If Obama Had Governed Like This in 2017 He'd Be the Transformational.</a>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- News Feed Area End Here -->
-    <!-- News Info List Area Start Here -->
-    <section class="bg-body">
-      <div class="container">
-        <ul class="news-info-list text-center--md">
-          <li>
-            <i class="fa fa-map-marker" aria-hidden="true"></i>Australia
-          </li>
-          <li>
-            <i class="fa fa-calendar" aria-hidden="true"></i><span id="current_date"></span>
-          </li>
-          <li>
-            <i class="fa fa-clock-o" aria-hidden="true"></i>Last Update 11.30 am
-          </li>
-          <li>
-            <i class="fa fa-cloud" aria-hidden="true"></i>29&#8451; Sydney, Australia
-          </li>
-        </ul>
-      </div>
-    </section>
-
     <!-- Đăng nhập-->
     @include('client.auth.login')
     <!-- Đăng nhâp End-->
@@ -107,15 +64,8 @@
     @include('client.auth.register')
     <!-- Đăng ký End-->
 
-
-
     @yield('content')
 
-
-
-    <!-- <main class="py-4">
-    @yield('content')
-  </main> -->
 
     @include('client.partial.footer')
   </div>
@@ -145,9 +95,13 @@
   <script src="{{ asset('asset/client/js/ticker.js') }}" type="text/javascript"></script>
   <!-- Custom Js -->
   <script src="{{ asset('asset/client/js/main.js') }}" type="text/javascript"></script>
+  <!-- Nivo slider js -->
+  <script src="{{ asset('asset/client/vendor/slider/js/jquery.nivo.slider.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('asset/client/vendor/slider/home.js') }}" type="text/javascript"></script>
+
 
   @stack('scripts')
 
-  
+
 </body>
 </html>

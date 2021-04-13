@@ -783,7 +783,7 @@ ul.item2-inline li:last-child{
     animation:blinker 10s linear infinite
 }
 #preloader{
-    background:url(img/preloader.gif) center center no-repeat #e53935;
+    background: #e53935;
     height:100%;
     left:0;
     overflow:visible;
@@ -2546,7 +2546,7 @@ ul.header-social li a{
     background-color:transparent;
     font-size:14px;
     display:block;
-    color:#fff;
+    color:#000;
     -webkit-transition:all .3s ease-out;
     -moz-transition:all .3s ease-out;
     -ms-transition:all .3s ease-out;

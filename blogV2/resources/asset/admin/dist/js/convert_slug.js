@@ -19,7 +19,7 @@ function convertSlug(str) {
 $('input[name="title"]').change(function() {
   var txtSlug = $(this).val();
   var slug = convertSlug(txtSlug);
-  slug = slug.replaceAll(" ", "-");
+  slug = slug.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-')
   slug = slug.toLowerCase();
   $('input[name="slug"]').val(slug);
 });

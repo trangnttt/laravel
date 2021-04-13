@@ -27,7 +27,9 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/client/css/meanmenu.min.css', 'public/asset/client/css/meanmenu.min.css')
     .copy('resources/asset/client/css/magnific-popup.css', 'public/asset/client/css/magnific-popup.css')
     .copy('resources/asset/client/css/hover-min.css', 'public/asset/client/css/hover-min.css')
-    .copy('resources/asset/client/css/ie-only.css', 'public/asset/client/css/ie-only.css')
+    .copy('resources/asset/client/vendor/slider/css/preview.css', 'public/asset/client/vendor/slider/css/preview.css')
+    .copy('resources/asset/client/vendor/slider/css/nivo-slider.css', 'public/asset/client/vendor/slider/css/nivo-slider.css')
+    
 
 
     .copy('resources/asset/admin/plugins/fontawesome-free/css/all.min.css', 'public/asset/admin/plugins/fontawesome-free/css/all.min.css')
@@ -57,6 +59,12 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/client/js/jquery.magnific-popup.min.js', 'public/asset/client/js/jquery.magnific-popup.min.js')
     .copy('resources/asset/client/js/ticker.js', 'public/asset/client/js/ticker.js')
     .copy('resources/asset/client/js/main.js', 'public/asset/client/js/main.js')
+    .copy('resources/asset/client/js/modernizr-2.8.3.min.js', 'public/asset/client/js/modernizr-2.8.3.min.js')
+    .copy('resources/asset/client/js/jquery.meanmenu.min.js', 'public/asset/client/js/jquery.meanmenu.min.js')
+    .copy('resources/asset/client/vendor/slider/js/jquery.nivo.slider.js', 'public/asset/client/vendor/slider/js/jquery.nivo.slider.js')
+    .copy('resources/asset/client/vendor/slider/home.js', 'public/asset/client/vendor/slider/home.js')
+
+
     
     .copy('resources/asset/admin/plugins/jquery/jquery.min.js', 'public/asset/admin/plugins/jquery/jquery.min.js')
     .copy('resources/asset/admin/plugins/jquery-ui/jquery-ui.min.js', 'public/asset/admin/plugins/jquery-ui/jquery-ui.min.js')
