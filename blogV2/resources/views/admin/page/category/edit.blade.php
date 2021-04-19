@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" role="dialog" id="editCategoryModal">
+<div class="modal" id="editCategoryModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background: #06abea14;color: #007bff;">

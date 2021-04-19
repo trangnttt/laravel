@@ -13,6 +13,9 @@ use Session;
 
 class MemberController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['admin']);
+    }
     
     public function create() {
         return view('admin.page.member.create');

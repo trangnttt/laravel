@@ -32,10 +32,15 @@ Route::group( [ 'prefix' => 'admin'], function()
     // logout
     Route::get('logout', [App\Http\Controllers\Admin\AdminController::class, 'logout'])->name('admin.logout');
 
+
     Route::group(['middleware' => ['admin']], function () {
-        Route::get('/', function () {
-            return view('admin.home');
-        })->name('admin.home');
+        // Route::get('/', function () {
+        //     return view('admin.home');
+        // })->name('admin.home');
+
+        Route::get('/', [App\Http\Controllers\Admin\DashboadController::class, 'count'])->name('admin.home');
+
+
         // categogy
 
         Route::get('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin.category.add');
@@ -59,6 +64,7 @@ Route::group( [ 'prefix' => 'admin'], function()
         Route::get('/post/delete/{id}', [App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('admin.post.delete');
 
         Route::get('/post/list', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.post.list');
+        Route::get('post/search', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.search');
 
 
         // member

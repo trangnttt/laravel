@@ -58,6 +58,7 @@
                       </a>
                     </div>
                   </div>
+                  @include('admin.page.category.edit')
 
                   @if ($category->children)
                   <ul class="list-group mt-2">

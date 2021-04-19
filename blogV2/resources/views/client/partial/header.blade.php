@@ -6,17 +6,21 @@
           <div class="row">
             <div class="col-lg-8 col-md-12">
               <ul class="news-info-list text-center--md">
-                <li>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>Australia
+                <li id="country">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>Country name
                 </li>
                 <li>
                   <i class="fa fa-calendar" aria-hidden="true"></i><span id="current_date"></span>
                 </li>
                 <li>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>Last Update 11.30 am
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>Time
+                  @php
+                  date_default_timezone_set('Asia/Ho_Chi_Minh');
+                  echo date('H:i:s');
+                  @endphp
                 </li>
-                <li>
-                  <i class="fa fa-cloud" aria-hidden="true"></i>29&#8451; Sydney, Australia
+                <li id="weather">
+                  <i class="fa fa-cloud" aria-hidden="true"></i> weather number
                 </li>
               </ul>
             </div>
@@ -69,11 +73,11 @@
           <div class="col-lg-2 col-md-2 d-none d-lg-block">
             <div class="logo-area">
               <a href="index.html" class="img-fluid">
-              <img src="{{ asset('asset/client/img/logo-dark.png') }}" alt="logo" class="img-fluid">
+                <img src="{{ asset('asset/client/img/logo-dark.png') }}" alt="logo" class="img-fluid">
               </a>
             </div>
           </div>
-          <div class="col-xl-7 col-lg-6 position-static min-height-none">
+          <div class="col-xl-8 col-lg-6 position-static min-height-none">
             <div class="ne-main-menu">
               <nav id="dropdown">
                 <ul>
@@ -164,49 +168,49 @@
                   <li>
                     <a href="post-style-4.html">Fashion</a>
                   </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-12 text-right position-static">
-            <div class="header-action-item">
-              <ul>
-                @guest
-                @if (Route::has('login'))
-                <li>
-                  <button type="button" class="login-btn" data-toggle="modal" data-target="#signup">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    Signup
-                  </button>
-                </li>
-                @endif
-                @if (Route::has('register'))
-                <li>
-                  <button type="button" class="login-btn" data-toggle="modal" data-target="#myModal">
-                    <i class="fa fa-user" aria-hidden="true"></i>Login
-                  </button>
-                </li>
-                @endif
-                @else
-                <li>
-                  <button type="button" class="login-btn">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    {{ Auth::user()->name }}
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="login-btn">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                  @guest
+                  @if (Route::has('login'))
+                  <li>
+                    <a href="" class="text-capitalize" data-toggle="modal" data-target="#signup">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      Sign up
+                    </a>
+                  </li>
+                  @endif
+                  @if (Route::has('register'))
+                  <li>
+                    <a href="" class="text-capitalize" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      Sign in
+                    </a>
+                  </li>
+                  @endif
+                  @else
+                  <li>
+                    <a href="" class="text-capitalize">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      {{ Auth::user()->name }}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ route('logout') }}" class="text-capitalize" onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();" style="color: #000; font-size: 14px;">
                       Logout
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                     </form>
-                  </button>
-                </li>
-                @endguest
+                    </a>
+
+                  </li>
+                  @endguest
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-4 col-md-12 text-right position-static">
+            <div class="header-action-item on-mobile-fixed">
+              <ul>
                 <li>
                   <form id="top-search-form" class="header-search-light">
                     <input type="text" class="search-input" placeholder="Search...." required="" style="display: none;">

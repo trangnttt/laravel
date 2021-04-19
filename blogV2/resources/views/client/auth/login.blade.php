@@ -10,10 +10,10 @@
           <form method="POST" action="{{ route('login') }}">
             @csrf
             <label>Email *</label>
-            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
               value="{{ old('email') }}" required autocomplete="email" autofocus>
             <label>Password *</label>
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+            <input type="password" class="form-control @error('password') is-invalid @enderror"
               name="password" required autocomplete="current-password">
             <div class="checkbox checkbox-primary">
               <input class="form-check-input" type="checkbox" name="remember" id="remember"

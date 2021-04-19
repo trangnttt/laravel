@@ -28,14 +28,12 @@
           </ol>
         </div>
       </div>
+      <a href="{{ route('admin.member.add') }}" class="btn btn-primary">Add member</a>
     </div>
   </section>
   <section>
     <div class="col-12">
       <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Member List</h3>
-        </div>
         <!-- /.card-header -->
         <div class="card-body p-0">
           <!-- search -->

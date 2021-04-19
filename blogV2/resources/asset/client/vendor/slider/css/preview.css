@@ -34,23 +34,23 @@ preview-1
 }
 .preview-1 .nivo-controlNav {
     position: absolute;
-    z-index: 99999;
+    z-index: 10;
     bottom: 68px;
     opacity: 1;
 }
 
 .preview-1:hover .nivo-controlNav a{
   opacity: 1;
-  z-index: 999999;
+  z-index: 10;
 }
 
 .preview-1:hover .nivo-controlNav a{
   opacity: 1;
-  z-index: 999999;
+  z-index: 10;
 }
 .preview-1 .nivo-controlNav {
     position: absolute;
-    z-index: 99999;
+    z-index: 10;
     bottom: 68px;
     left: 0;
     right: 0;

@@ -15,14 +15,27 @@ use Session;
 
 class PostController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['admin']);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
-        $posts = Post::latest()->paginate(2);
+        $obj = Post::latest();
+        $search =  $request->query('search');
+        if(!empty($search)){
+            $posts = $obj
+            ->where('title', 'LIKE', "%{$search}%")
+            ->paginate(5)->appends(['search' => $request->search]);
+        }
+        else {
+            $posts = Post::latest()->paginate(5);
+        }
         return view('admin.page.post.index', compact('posts'));
     }
 
@@ -159,7 +172,7 @@ class PostController extends Controller
 
         $rules = array(
             'title'         => 'required|min:3|max:255',
-            'slug'          => 'required|min:3|max:255|unique:posts',
+            'slug'          => 'required|min:3|max:255',
         );
     
         $validator = Validator::make($request->all(), $rules);
@@ -176,8 +189,15 @@ class PostController extends Controller
             $post->slug = $request->slug;
             $post->category_id = $request->category_id;
             $post->user_id = Auth::guard('admin')->user()->id;
+            
+            if(isset($request->image)){
+                $imageName = time().'.'.$request->image->getClientOriginalExtension();        
+                $request->image->move(public_path('images'), $imageName);
+                $post->image = $imageName;
+            }
             $post->content = $request->content;
             $post->save();
+
             Session::flash('message', 'Successfully updated post!');
             return redirect(route('admin.post.list', [$post->slug]));
         }

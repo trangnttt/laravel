@@ -24,13 +24,13 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ $countCategory }}</h3>
                             <h4>CATEGORY</h4>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="/admin/category/list" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.category') }}" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -38,13 +38,13 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3>{{ $countPost }}</h3>
                             <h4>POST</h4>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="/admin/post/list" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.post.list') }}" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -52,13 +52,13 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{{ $countAdmin }}</h3>
                             <h4 style="color: #fff">MEMBER</h4>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.member.list') }}" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

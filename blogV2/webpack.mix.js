@@ -60,10 +60,9 @@ mix.copy('resources/asset/client/style.css', 'public/asset/client/style.css')
     .copy('resources/asset/client/js/ticker.js', 'public/asset/client/js/ticker.js')
     .copy('resources/asset/client/js/main.js', 'public/asset/client/js/main.js')
     .copy('resources/asset/client/js/modernizr-2.8.3.min.js', 'public/asset/client/js/modernizr-2.8.3.min.js')
-    .copy('resources/asset/client/js/jquery.meanmenu.min.js', 'public/asset/client/js/jquery.meanmenu.min.js')
     .copy('resources/asset/client/vendor/slider/js/jquery.nivo.slider.js', 'public/asset/client/vendor/slider/js/jquery.nivo.slider.js')
     .copy('resources/asset/client/vendor/slider/home.js', 'public/asset/client/vendor/slider/home.js')
-
+    .copy('resources/asset/client/js/partial.js', 'public/asset/client/js/partial.js')
 
     
     .copy('resources/asset/admin/plugins/jquery/jquery.min.js', 'public/asset/admin/plugins/jquery/jquery.min.js')

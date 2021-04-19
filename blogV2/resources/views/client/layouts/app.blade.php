@@ -98,7 +98,8 @@
   <!-- Nivo slider js -->
   <script src="{{ asset('asset/client/vendor/slider/js/jquery.nivo.slider.js') }}" type="text/javascript"></script>
   <script src="{{ asset('asset/client/vendor/slider/home.js') }}" type="text/javascript"></script>
-
+  <!-- partial js -->
+  <script src="{{ asset('asset/client/js/partial.js') }}" type="text/javascript"></script>
 
   @stack('scripts')
 

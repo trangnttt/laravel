@@ -40,6 +40,7 @@
     "/asset/client/js/modernizr-2.8.3.min.js": "/asset/client/js/modernizr-2.8.3.min.js",
     "/asset/client/vendor/slider/js/jquery.nivo.slider.js": "/asset/client/vendor/slider/js/jquery.nivo.slider.js",
     "/asset/client/vendor/slider/home.js": "/asset/client/vendor/slider/home.js",
+    "/asset/client/js/partial.js": "/asset/client/js/partial.js",
     "/asset/admin/plugins/jquery/jquery.min.js": "/asset/admin/plugins/jquery/jquery.min.js",
     "/asset/admin/plugins/jquery-ui/jquery-ui.min.js": "/asset/admin/plugins/jquery-ui/jquery-ui.min.js",
     "/asset/admin/plugins/bootstrap/js/bootstrap.bundle.min.js": "/asset/admin/plugins/bootstrap/js/bootstrap.bundle.min.js",
