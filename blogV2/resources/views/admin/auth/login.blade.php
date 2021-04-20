@@ -46,7 +46,7 @@
     </form>
 
       <p class="mt-2 mb-0 text-center">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="{{ route('admin.forgetpass') }}">I forgot my password</a>
       </p>
       <p class="mb-2 text-center">
         <a href="" class="text-center">Register a new membership</a>

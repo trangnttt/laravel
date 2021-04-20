@@ -29,14 +29,16 @@ Route::group( [ 'prefix' => 'admin'], function()
     Route::get('login', [App\Http\Controllers\Admin\AdminController::class, 'showLoginForm'])->name('admin.login');
     Route::post('login', [App\Http\Controllers\Admin\AdminController::class, 'adminLogin'])->name('admin.login');
    
+    // forget-password
+    Route::get('/auth/passwords/reset', [App\Http\Controllers\Admin\AdminController::class, 'forgetPassword'])->name('admin.forgetpass');
+    Route::post('/auth/passwords/reset', [App\Http\Controllers\Admin\AdminController::class, 'updatePassword'])->name('admin.forgetpass');
+   
+
     // logout
     Route::get('logout', [App\Http\Controllers\Admin\AdminController::class, 'logout'])->name('admin.logout');
 
 
     Route::group(['middleware' => ['admin']], function () {
-        // Route::get('/', function () {
-        //     return view('admin.home');
-        // })->name('admin.home');
 
         Route::get('/', [App\Http\Controllers\Admin\DashboadController::class, 'count'])->name('admin.home');
 

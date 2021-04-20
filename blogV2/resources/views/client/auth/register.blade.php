@@ -9,7 +9,7 @@
         <div class="login-form">
           <form id="form-signup" method="POST" action="{{ route('register') }}">
             @csrf
-
+            <input type="hidden" name="token" value="">
             <label>Username *</label>
             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
               value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -43,8 +43,6 @@
       var password = $('#form-signup input[name="password"]').val();
       var password_confirmation = $('#form-signup input[name="password_confirmation"]').val();
 
-      
-      console.log(name , email, password);
       $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('input[name="_token"]').val()
@@ -52,7 +50,7 @@
         });
       $.ajax({
         type: 'post',
-        url: 'http://127.0.0.1:8000/register',
+        url: './register',
         data: {
           'name': name,
           'email': email,

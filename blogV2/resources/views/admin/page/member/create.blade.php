@@ -23,10 +23,7 @@
           <h1>Create User</h1>
         </div>
         <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Create User</li>
-          </ol>
+          @include('admin.partial.breadcrumb')
         </div>
       </div>
     </div><!-- /.container-fluid -->

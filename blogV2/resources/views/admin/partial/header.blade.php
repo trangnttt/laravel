@@ -9,7 +9,7 @@
        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
      </li>
      <li class="nav-item d-none d-sm-inline-block">
-       <a href="#" class="nav-link">Home</a>
+       <a href="{{ route('admin.home') }}" class="nav-link">Home</a>
      </li>
      <li class="nav-item d-none d-sm-inline-block">
        <a href="#" class="nav-link">Contact</a>
@@ -138,7 +138,7 @@
            alt="User Image">
        </div>
        <div class="info">
-         <a href="#" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
+         <a href="{{ route('admin.home') }}" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
        </div>
      </div>
 

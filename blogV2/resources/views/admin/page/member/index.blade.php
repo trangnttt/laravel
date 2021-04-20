@@ -22,10 +22,7 @@
           <h1>Member</h1>
         </div>
         <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Member</li>
-          </ol>
+          @include('admin.partial.breadcrumb')
         </div>
       </div>
       <a href="{{ route('admin.member.add') }}" class="btn btn-primary">Add member</a>
@@ -97,9 +94,9 @@
               </tbody>
               @else
               <tbody>
-                  <tr>
+                <tr>
                   <td colspan="5">No data found</td>
-                  </tr>
+                </tr>
               </tbody>
               @endif
             </table>

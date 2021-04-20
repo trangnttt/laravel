@@ -37,6 +37,16 @@ class AdminController extends Controller
         return Auth::guard('admin');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('admin.home');
+    }
+
     public function showLoginForm()
     {
         return view('admin.auth.login');
@@ -71,19 +81,25 @@ class AdminController extends Controller
         }
     }
 
+    public function forgetPassword() {
+        return view('admin.auth.passwords.reset');
+    }
+
+    public function updatePassword(Request $request) {
+        $admin = Admin::where('email', '=', $request->email)->first();
+ 
+        if ($admin === null) {
+            dd('null');
+        }
+        else{
+            dd('yes');
+        }
+    }
+
     public function logout(Request $request)
     {
         Auth::guard('admin') -> logout();
         return redirect('admin/login');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('admin.home');
-    }
 }
