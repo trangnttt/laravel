@@ -18,8 +18,8 @@
                 data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
                 <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover"
                   data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined"
-                  src="{{ asset('assets/client/dest/images/thumbs/1.jpg') }}" data-src="assets/client/dest/images/thumbs/1.jpg"
-                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('{{ asset('assets/client/dest/images/thumbs/1.jpg') }}'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
+                  src="assets/client/dest/images/thumbs/1.jpg" data-src="assets/client/dest/images/thumbs/1.jpg"
+                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('assets/client/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
                 </div>
               </div>
 
@@ -33,8 +33,8 @@
                 data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
                 <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover"
                   data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined"
-                  src="{{ asset('assets/client/dest/images/thumbs/1.jpg') }}" data-src="assets/client/dest/images/thumbs/1.jpg"
-                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('{{ asset('assets/client/dest/images/thumbs/1.jpg') }}'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
+                  src="assets/client/dest/images/thumbs/1.jpg" data-src="assets/client/dest/images/thumbs/1.jpg"
+                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('assets/client/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
                 </div>
               </div>
 
@@ -47,8 +47,8 @@
                 data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
                 <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover"
                   data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined"
-                  src="{{ asset('assets/client/dest/images/thumbs/1.jpg') }}" data-src="assets/client/dest/images/thumbs/1.jpg"
-                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('{{ asset('assets/client/dest/images/thumbs/1.jpg') }}'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
+                  src="assets/client/dest/images/thumbs/1.jpg" data-src="assets/client/dest/images/thumbs/1.jpg"
+                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('assets/client/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
                 </div>
               </div>
 
@@ -63,8 +63,8 @@
                 data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
                 <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover"
                   data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined"
-                  src="{{ asset('assets/client/dest/images/thumbs/1.jpg') }}" data-src="assets/client/dest/images/thumbs/1.jpg"
-                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('{{ asset('assets/client/dest/images/thumbs/1.jpg') }}'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
+                  src="assets/client/dest/images/thumbs/1.jpg" data-src="assets/client/dest/images/thumbs/1.jpg"
+                  style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('assets/client/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
                 </div>
               </div>
 
@@ -95,7 +95,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/1.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/1.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -117,7 +117,7 @@
                   </div>
 
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/2.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/2.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -136,7 +136,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/3.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/3.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -154,7 +154,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/3.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/3.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -184,7 +184,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/1.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/1.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -206,7 +206,7 @@
                   </div>
 
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/2.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/2.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -225,7 +225,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/3.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/3.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -243,7 +243,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/3.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/3.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -264,7 +264,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/1.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/1.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -286,7 +286,7 @@
                   </div>
 
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/2.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/2.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -305,7 +305,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/3.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/3.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
@@ -323,7 +323,7 @@
               <div class="col-sm-3">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <a href="product.html"><img src="{{ asset('assets/client/dest/images/products/3.jpg') }}" alt=""></a>
+                    <a href="product.html"><img src="assets/client/dest/images/products/3.jpg" alt=""></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">Sample Woman Top</p>
