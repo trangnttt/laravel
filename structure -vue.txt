@@ -1,0 +1,122 @@
+Install package
+yarn add -D vue vue-template-compiler vue-router vuex  vue-axios sass sass-loader
+
+package.json
+"scripts": {
+  "dev": "yarn run development",
+  "watch": "yarn run development --watch",
+  "watch-poll": "yarn run watch --watch-poll",
+  "prod": "yarn run production",
+}
+
+Structure vue
+api  
+assets
+components
+mixins
+directive
+filters
+layouts
+router
+store
+vendor
+views
+utils
+App.vue
+app.js
+
+
+#Create router
+#modules
+/router/modules/about.js
+
+const aboutRouter = {
+	path: '/about',
+	name: about,
+	children: [
+		path: ':edit',
+		component: () => import('@/views/about/edit'),
+		name: 'AboutEdit'
+	]
+}
+#Create file inde.js. Load all router form modules
+/router/index.js
+  
+import Vue from 'vue'
+import Router from 'vue-router'
+
+Vue.use(Router)
+
+import aboutRouter from './modules/aboutRouter'
+
+const router = new VueRouter({
+    mode: 'history',
+     routes: [
+      ...aboutRouter
+     ]
+})
+
+export default router
+
+#Create layout web
+/layouts/default.vue
+<template>
+	<div>
+		<header>Header</header>
+		<main>
+			<slot/>
+		</main>
+		<footer>Footer</footer>
+	</div>
+</template>
+
+/layouts/login.vue
+<template>
+	<div>
+		
+		<main>
+			<slot/>
+		</main>
+	</div>
+</template>
+
+#Create App.vue
+App.vue
+<template>
+  <div id="app">
+    <component :is="layout">
+    <router-view/>
+    </component>
+  </div>
+</template>
+
+<script>
+
+const default_layout = 'default';
+export default {
+  name: 'App',
+  computed: {
+    layout() {
+      return( this.$route.meta.layout || default_layout) + '-layout';
+    },
+  },
+};
+</script>
+
+#Create app.js
+import Vue from 'vue';
+import AppLayout from './layouts/App';
+import router from './router';
+
+import default from './layouts/default.vue';
+import login from './layouts/login.vue';
+
+Vue.component('default-layout', default)
+Vue.component('login-layout', login);
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  render: h => h(App),
+});
