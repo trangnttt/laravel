@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client.index');
-});
+
+Route::get('/', [App\Http\Controllers\Client\PageControler::class, 'getIndex'])->name('client.home');
+
 
 Route::get('/product_type', [App\Http\Controllers\Client\PageControler::class, 'getProductType'])->name('client.product_type');
 Route::get('/product_detail', [App\Http\Controllers\Client\PageControler::class, 'getProductDetail'])->name('client.product_detail');

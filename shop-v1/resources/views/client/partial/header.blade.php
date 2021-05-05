@@ -93,16 +93,16 @@
       <div class="visible-xs clearfix"></div>
       <nav class="main-menu">
         <ul class="l-inline ov">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{{ route('client.home') }}">Home</a></li>
           <li><a href="#">Product</a>
             <ul class="sub-menu">
-              <li><a href="product_type.html">Product 1</a></li>
+              <li><a href="{{ route('client.product_type') }}">Product 1</a></li>
               <li><a href="product_type.html">Product 2</a></li>
               <li><a href="product_type.html">Product 4</a></li>
             </ul>
           </li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contacts.html">Contact</a></li>
+          <li><a href="{{route('client.about')}}">About</a></li>
+          <li><a href="{{route('client.contact')}}">Contact</a></li>
         </ul>
         <div class="clearfix"></div>
       </nav>
