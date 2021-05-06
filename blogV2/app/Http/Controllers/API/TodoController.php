@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use App\Models\Todo;
+use Illuminate\Support\Facades\Validator;
+
 
 class TodoController extends Controller
 {
@@ -14,7 +18,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return response()->json([ 'status' => 'OK' , 'data' => [] ]);
+        $obj  = new Todo;
+        $data = $obj->get();
+        return response()->json(['status' => 'OK', 'data' => $data]);
     }
 
     /**
@@ -25,7 +31,25 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json([ 'status' => 'OK' , 'data' => $request->all() ]);
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:3|max:255|string|unique:todos',
+            'project' => 'required|min:3|max:255|string',
+            'status' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+        else {
+            $todo = new Todo;
+            $todo->title = $request->title;
+            $todo->project = $request->project;
+            $todo->status = $request->status;
+            $todo->save();
+            return response()->json(['status' => 'OK', 'data' => $request->all()]);
+        }
+
     }
 
     /**
@@ -36,7 +60,8 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Todo::find($id);
+        return response()->json(['status' => 'OK', 'data' => $data]);
     }
 
     /**
@@ -48,7 +73,12 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->title = $request->title;
+        $todo->project = $request->project;
+        $todo->status = $request->status;
+        $todo->save();
+        return response()->json(['status' => 'OK', 'data' => $request->all()]);
     }
 
     /**
@@ -59,6 +89,8 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->delete();
+        return response()->json(['status' => 'OK', 'data' => 'pass']);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\ProductType;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // lấy dữ liệu cho product_type trên menu
+        view()->composer('client/partial/header',function($view){
+            $product_type = ProductType::all();
+            $view->with('product_type',$product_type);
+        });
     }
 }

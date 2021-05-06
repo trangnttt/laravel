@@ -96,9 +96,9 @@
           <li><a href="{{ route('client.home') }}">Home</a></li>
           <li><a href="#">Product</a>
             <ul class="sub-menu">
-              <li><a href="{{ route('client.product_type') }}">Product 1</a></li>
-              <li><a href="product_type.html">Product 2</a></li>
-              <li><a href="product_type.html">Product 4</a></li>
+            @foreach($product_type as $type)
+              <li><a href="{{ route('client.product_type',$type->id) }}">{{$type->name}}</a></li>
+            @endforeach
             </ul>
           </li>
           <li><a href="{{route('client.about')}}">About</a></li>
