@@ -18,9 +18,11 @@ Route::get('/', [App\Http\Controllers\Client\PageControler::class, 'getIndex'])-
 
 
 Route::get('/product_type/{id}', [App\Http\Controllers\Client\PageControler::class, 'getProductType'])->name('client.product_type');
-Route::get('/product_detail', [App\Http\Controllers\Client\PageControler::class, 'getProductDetail'])->name('client.product_detail');
+Route::get('/product_detail/{id}', [App\Http\Controllers\Client\PageControler::class, 'getProductDetail'])->name('client.product_detail');
 Route::get('/about', [App\Http\Controllers\Client\PageControler::class, 'getAbout'])->name('client.about');
 Route::get('/contact', [App\Http\Controllers\Client\PageControler::class, 'getContact'])->name('client.contact');
+
+Route::get('/add-to-cart/{id}', [App\Http\Controllers\Client\PageControler::class, 'getAddCart'])->name('client.add_cart');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

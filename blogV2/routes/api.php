@@ -27,7 +27,9 @@ Route::get('v1/todo/', 'App\Http\Controllers\API\TodoController@index');
 Route::post('v1/todo/create', 'App\Http\Controllers\API\TodoController@store');
 Route::get('v1/todo/edit/{id}', 'App\Http\Controllers\API\TodoController@show');
 Route::post('v1/todo/update/{id}', 'App\Http\Controllers\API\TodoController@update');
-Route::get('v1/todo/delete/{id}', 'App\Http\Controllers\API\TodoController@destroy');
+Route::delete('v1/todo/delete', 'App\Http\Controllers\API\TodoController@destroy');
+
+Route::delete('v1/todo/search', 'App\Http\Controllers\API\TodoController@index');
 
 // Route::get('v1/todo', function() {
 //     return response()->json([ 'status' => 'OK' , 'data' => [] ]);

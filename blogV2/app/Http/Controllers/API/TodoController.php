@@ -16,10 +16,24 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $obj  = new Todo;
-        $data = $obj->get();
+        // $obj  = new Todo;
+        // $data = $obj->get();
+        // return response()->json(['status' => 'OK', 'data' => $data]);
+
+
+        $obj = new Todo;
+        $search =  $request->query('search');
+        if(!empty($search)) {
+            $data = $obj
+            ->where('title', 'LIKE', "%{$search}%")
+            ->orWhere('project', 'LIKE', "%{$search}%")
+            ->paginate(5)->appends(['search' => $request->search]);
+        }
+        else {
+            $data = $obj->get();
+        }
         return response()->json(['status' => 'OK', 'data' => $data]);
     }
 
@@ -87,9 +101,9 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $todo = Todo::find($id);
+        $todo = Todo::find($request->id);
         $todo->delete();
         return response()->json(['status' => 'OK', 'data' => 'pass']);
     }

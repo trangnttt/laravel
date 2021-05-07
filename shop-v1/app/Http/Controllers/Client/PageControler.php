@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Slide;
 use App\Models\Product;
 use App\Models\ProductType;
+use Illuminate\Contracts\Session\Session;
 
 
 class PageControler extends Controller
@@ -31,8 +33,10 @@ class PageControler extends Controller
         return view('client.page.product_type',compact('product_type', 'product_other', 'types', 'type_item'));
     }
 
-    public function getProductDetail(){
-        return view('client.page.product_detail');
+    public function getProductDetail(Request $req){
+        $product = Product::where('id', $req->id)->first();
+        $same_product = Product::where('id_type', $product->id_type)->paginate(6);
+        return view('client.page.product_detail',compact('product', 'same_product'));
     }
 
     public function getContact(){
@@ -40,6 +44,15 @@ class PageControler extends Controller
     }
 
     public function getAbout(){
+        return view('client.page.about');
+    }
+
+    public function getAddCart($id){
+        $product = Product::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id);
+        
         return view('client.page.about');
     }
     
