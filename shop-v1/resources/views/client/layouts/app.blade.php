@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laravel </title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <base href="{{asset('')}}">
   <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -16,6 +18,7 @@
   <link rel="stylesheet" href="assets/client/dest/css/animate.css">
   <link rel="stylesheet" title="style" href="assets/client/dest/css/huong-style.css">
 </head>
+
 <body>
 
   @include('client.partial.header')
@@ -42,16 +45,14 @@
   <script src="assets/client/dest/js/wow.min.js"></script>
   <!--customjs-->
   <script src="assets/client/dest/js/custom2.js"></script>
+  <!-- partial -->
+  <script src="assets/client/dest/js/partial.js"></script>
+
   <script>
-  $(document).ready(function($) {
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 150) {
-        $(".header-bottom").addClass('fixNav')
-      } else {
-        $(".header-bottom").removeClass('fixNav')
-      }
-    })
-  })
+    jQuery(".alert").fadeTo(2000, 500).slideDown(500, function() {
+      jQuery(".alert").slideUp(300);
+    });
   </script>
 </body>
+
 </html>

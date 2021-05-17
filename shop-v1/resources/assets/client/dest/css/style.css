@@ -1624,19 +1624,23 @@ display:block;
 margin-bottom:5px
 }
 
-.cart-item-amount span {
-color:#f90
+.cart-item-price {
+color:#f90;
+font-weight: 600;
 }
+
+
 
 .cart-total {
 border-bottom:1px solid #e1e1e1;
 font-size:15px;
 height:50px;
-line-height:50px
+line-height:50px;
+font-weight: 600;
 }
 
 .cart-total-value {
-color:#f90
+color:#f90;
 }
 
 .beta-tags {
@@ -5202,3 +5206,9 @@ border:none;}
 .beta-rotator canvas{width:100%;}
 .beta-rotator {font-family: "Open Sans",sans-serif;}
 .history-slider span {font-family: "Open Sans",sans-serif;}
+.sub_breadcrumb{
+    text-transform: capitalize;
+}
+.is-error {
+    color: #cf2926;
+}

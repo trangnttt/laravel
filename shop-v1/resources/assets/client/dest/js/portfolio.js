@@ -1,9 +1,9 @@
-$(document).ready(function() {
+jQuery(document).ready(function() {
 	/* ================ VERFIFY IF USER IS ON TOUCH DEVICE ================ */
     
     if(is_touch_device()){
-        $(".portfolio-image").on('click', function(e){					
-            $(this).find('.portfolio-hover').show();
+        jQuery(".portfolio-image").on('click', function(e){					
+            jQuery(this).find('.portfolio-hover').show();
         });
     }
     
@@ -18,7 +18,7 @@ $(document).ready(function() {
     (function() {
         //ISOTOPE
         // cache container
-        var $portfolioitems = $('#portfolioitems');
+        var $portfolioitems = jQuery('#portfolioitems');
         // initialize isotope
         $portfolioitems.isotope({
             filter: '*',
@@ -29,9 +29,9 @@ $(document).ready(function() {
         });
 
         // filter items when filter link is clicked
-        $('#filters a').click(function() {
-            $('#filters li').removeClass('active');
-            var selector = $(this).closest('li').addClass('active').end().attr('data-filter');
+        jQuery('#filters a').click(function() {
+            jQuery('#filters li').removeClass('active');
+            var selector = jQuery(this).closest('li').addClass('active').end().attr('data-filter');
             $portfolioitems.isotope({
                 filter: selector
             });

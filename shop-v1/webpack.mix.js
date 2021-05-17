@@ -11,7 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
+
 mix.copyDirectory('resources/assets/client/', 'public/assets/client/');
 
-
+mix.copyDirectory('resources/assets/admin/', 'public/assets/admin/');
 

@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\ProductType;
 use App\Models\Cart;
 
-use Session;
+use Illuminate\Support\Facades\Session;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -30,15 +30,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // lấy dữ liệu cho product_type trên menu
-        view()->composer('client/partial/header', function ($view) {
-            $product_type = ProductType::all();
+        // view()->composer('client/partial/header', function ($view) {
+        //     $product_type = ProductType::all();
+        //     $view->with('product_type',$product_type);
+        //     if (Session('cart')) {
+        //         $oldCart = Session::get('cart');
+        //         $cart = new Cart($oldCart);
+        //     }
 
-            if (Session('cart')) {
-                $oldCart = Session::get('cart');
-                $cart = new Cart($oldCart);
-            }
+        //     $view->with(['product_type', $product_type, 'cart' => Session::get('cart'), 'product_cart' => $cart->items, 'totalPrice' => $cart->totalPrice, 'totalQty' => $cart->totalQty]);
+        // });
 
-            $view->with(['product_type', $product_type, 'cart' => Session::get('cart'), 'product_cart' => $cart->items, 'totalPrice' => $cart->totalPrice, 'totalQty' => $cart->totalQty]);
-        });
+
     }
 }

@@ -13,10 +13,10 @@
 	'use strict';
 
 	// global
-	var Modernizr = window.Modernizr, $body = $( 'body' );
+	var Modernizr = window.Modernizr, $body = jQuery( 'body' );
 
 	$.DLMenu = function( options, element ) {
-		this.$el = $( element );
+		this.$el = jQuery( element );
 		this._init( options );
 	};
 
@@ -92,7 +92,7 @@
 				
 				event.stopPropagation();
 
-				var $item = $(this),
+				var $item = jQuery(this),
 					$submenu = $item.children( 'ul.dl-submenu' );
 
 				if( $submenu.length > 0 ) {
@@ -128,7 +128,7 @@
 
 			this.$back.on( 'click.dlmenu', function( event ) {
 				
-				var $this = $( this ),
+				var $this = jQuery( this ),
 					$submenu = $this.parents( 'ul.dl-submenu:first' ),
 					$item = $submenu.parent(),
 
@@ -200,7 +200,7 @@
 				self._closeMenu() ;
 			} );
 			this.$menu.addClass( 'dl-menuopen dl-menu-toggle' ).on( this.transEndEventName, function() {
-				$( this ).removeClass( 'dl-menu-toggle' );
+				jQuery( this ).removeClass( 'dl-menu-toggle' );
 			} );
 			this.$trigger.addClass( 'dl-active' );
 			this.open = true;

@@ -1,7 +1,6 @@
 @extends('client.layouts.app')
 
 @section('content')
-
 <div class="rev-slider">
   <div class="fullwidthbanner-container">
     <div class="fullwidthbanner">
@@ -42,6 +41,9 @@
 
             <div class="row">
               @foreach($new_product as $new)
+              @php
+              $price = ($new->promotion_price == 0) ? $new->unit_price : $new->promotion_price
+              @endphp
               <div class="col-sm-3">
                 <div class="single-item">
                   @if($new->promotion_price)
@@ -64,7 +66,7 @@
                     </p>
                   </div>
                   <div class="single-item-caption">
-                    <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="add-to-cart pull-left" href="#" onclick="setCart('{{$new->id}}','{{$new->name}}','{{$new->image}}','{{$new->unit_price}}','{{$new->promotion_price}}','{{$price}}')"><i class="fa fa-shopping-cart"></i></a>
                     <a class="beta-btn primary" href="{{ route('client.product_detail',$new->id) }}">Details <i class="fa fa-chevron-right"></i></a>
                     <div class="clearfix"></div>
                   </div>
@@ -73,7 +75,7 @@
               @endforeach
             </div>
             <div class="row">
-            {!! $new_product->links('pagination::bootstrap-4') !!}
+              {!! $new_product->links('pagination::bootstrap-4') !!}
             </div>
           </div> <!-- .beta-products-list -->
 
@@ -87,6 +89,9 @@
             </div>
             <div class="row">
               @foreach($top_product as $top)
+              @php
+              $price = ($top->promotion_price == 0) ? $top->unit_price : $top->promotion_price
+              @endphp
               <div class="col-sm-3">
                 <div class="single-item">
                   @if($top->promotion_price)
@@ -110,7 +115,7 @@
                     </p>
                   </div>
                   <div class="single-item-caption">
-                    <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="add-to-cart pull-left" href="#" onclick="setCart('{{$top->id}}','{{$top->name}}','{{$top->image}}','{{$top->unit_price}}','{{$top->promotion_price}}','{{$price}}')"><i class="fa fa-shopping-cart"></i></a>
                     <a class="beta-btn primary" href="{{ route('client.product_detail',$top->id) }}">Details <i class="fa fa-chevron-right"></i></a>
                     <div class="clearfix"></div>
                   </div>
@@ -119,7 +124,7 @@
               @endforeach
             </div>
             <div class="row">
-            {!! $top_product->links('pagination::bootstrap-4') !!}
+              {!! $top_product->links('pagination::bootstrap-4') !!}
             </div>
           </div> <!-- .beta-products-list -->
         </div>

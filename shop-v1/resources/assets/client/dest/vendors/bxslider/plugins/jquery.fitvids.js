@@ -60,10 +60,10 @@
         selectors.push(settings.customSelector);
       }
 
-      var $allVideos = $(this).find(selectors.join(','));
+      var $allVideos = jQuery(this).find(selectors.join(','));
 
       $allVideos.each(function(){
-        var $this = $(this);
+        var $this = jQuery(this);
         if (this.tagName.toLowerCase() === 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; }
         var height = ( this.tagName.toLowerCase() === 'object' || ($this.attr('height') && !isNaN(parseInt($this.attr('height'), 10))) ) ? parseInt($this.attr('height'), 10) : $this.height(),
             width = !isNaN(parseInt($this.attr('width'), 10)) ? parseInt($this.attr('width'), 10) : $this.width(),

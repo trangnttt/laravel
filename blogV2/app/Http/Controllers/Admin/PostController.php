@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Str;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 
 class PostController extends Controller

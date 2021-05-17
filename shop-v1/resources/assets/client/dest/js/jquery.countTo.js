@@ -2,14 +2,14 @@
 	$.fn.countTo = function (options) {
 		options = options || {};
 		
-		return $(this).each(function () {
+		return jQuery(this).each(function () {
 			// set options for current element
 			var settings = $.extend({}, $.fn.countTo.defaults, {
-				from:            $(this).data('from'),
-				to:              $(this).data('to'),
-				speed:           $(this).data('speed'),
-				refreshInterval: $(this).data('refresh-interval'),
-				decimals:        $(this).data('decimals')
+				from:            jQuery(this).data('from'),
+				to:              jQuery(this).data('to'),
+				speed:           jQuery(this).data('speed'),
+				refreshInterval: jQuery(this).data('refresh-interval'),
+				decimals:        jQuery(this).data('decimals')
 			}, options);
 			
 			// how many times to update the value, and how much to increment the value on each update
@@ -18,7 +18,7 @@
 			
 			// references & variables that will change with each update
 			var self = this,
-				$self = $(this),
+				$self = jQuery(this),
 				loopCount = 0,
 				value = settings.from,
 				data = $self.data('countTo') || {};

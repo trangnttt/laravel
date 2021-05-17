@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ProductType extends Model
 {
     use HasFactory;
-    protected $table = "type_products";
+    protected $table = "product_type";
     // hasMany(urlModel, khóa ngoại, khóa chính bảng type_products) => 1 product có nhiều productType
     public function product() {
-        return $this->hasMany('App\Product','id_type','id');
+        return $this->hasMany('App\Models\Product','id_type','id');
     }
     
 }

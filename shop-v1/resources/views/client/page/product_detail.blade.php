@@ -6,11 +6,7 @@
     <div class="pull-left">
       <h6 class="inner-title"><strong>{{$product->name}}</strong></h6>
     </div>
-    <div class="pull-right">
-      <div class="beta-breadcrumb font-large">
-        <a href="{{ route('client.home') }}">Home</a> / <span>Product Detail</span>
-      </div>
-    </div>
+    @include('client.partial.breadcrumb')
     <div class="clearfix"></div>
   </div>
 </div>

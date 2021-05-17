@@ -5,7 +5,7 @@
 <div class="inner-header">
   <div class="container">
     <div class="pull-left">
-      <h6 class="inner-title">Sản phẩm: <strong>{{$type_item->name}}</strong></h6>
+      <h6 class="inner-title">Product: <strong>{{$type_item->name}}</strong></h6>
     </div>
     <div class="pull-right">
       <div class="beta-breadcrumb font-large">

@@ -89,7 +89,7 @@
 
 		// support mutltiple elements
 		if(this.length > 1){
-			this.each(function(){$(this).bxSlider(options)});
+			this.each(function(){jQuery(this).bxSlider(options)});
 			return this;
 		}
 
@@ -103,8 +103,8 @@
 		 * Makes slideshow responsive
 		 */
 		// first get the original window dimens (thanks alot IE)
-		var windowWidth = $(window).width();
-		var windowHeight = $(window).height();
+		var windowWidth = jQuery(window).width();
+		var windowHeight = jQuery(window).height();
 
 
 
@@ -168,7 +168,7 @@
 			// save original style data
 			el.data("origStyle", el.attr("style"));
 			el.children(slider.settings.slideSelector).each(function() {
-			  $(this).data("origStyle", $(this).attr("style"));
+			  jQuery(this).data("origStyle", jQuery(this).attr("style"));
 			});
 			// perform all DOM / CSS modifications
 			setup();
@@ -183,7 +183,7 @@
 			// store a namspace reference to .bx-viewport
 			slider.viewport = el.parent();
 			// add a loading div to display while images are loading
-			slider.loader = $('<div class="bx-loading" />');
+			slider.loader = jQuery('<div class="bx-loading" />');
 			slider.viewport.prepend(slider.loader);
 			// set el to a massive width, to hold any needed slides
 			// also strip any margin and padding from el
@@ -236,7 +236,7 @@
 				slider.children.eq(slider.settings.startSlide).css({zIndex: 50, display: 'block'});
 			}
 			// create an element to contain all slider controls (pager, start / stop, etc)
-			slider.controls.el = $('<div class="bx-controls" />');
+			slider.controls.el = jQuery('<div class="bx-controls" />');
 			// if captions are requested, add them
 			if(slider.settings.captions) appendCaptions();
 			// check if startSlide is last slide
@@ -272,10 +272,10 @@
 			}
 			var count = 0;
 			selector.find('img, iframe').each(function(){
-				$(this).one('load', function() {
+				jQuery(this).one('load', function() {
 				  if(++count == total) callback();
 				}).each(function() {
-				  if(this.complete) $(this).load();
+				  if(this.complete) jQuery(this).load();
 				});
 			});
 		}
@@ -306,7 +306,7 @@
 			// slider has been fully initialized
 			slider.initialized = true;
 			// bind the resize call to the window
-			if (slider.settings.responsive) $(window).bind('resize', resizeWindow);
+			if (slider.settings.responsive) jQuery(window).bind('resize', resizeWindow);
 			// if auto is true, start the show
 			if (slider.settings.auto && slider.settings.autoStart) initAuto();
 			// if ticker is true, start the ticker
@@ -325,7 +325,7 @@
 		var getViewportHeight = function(){
 			var height = 0;
 			// first determine which children (slides) should be used in our height calculation
-			var children = $();
+			var children = jQuery();
 			// if mode is not "vertical" and adaptiveHeight is false, include all children
 			if(slider.settings.mode != 'vertical' && !slider.settings.adaptiveHeight){
 				children = slider.children;
@@ -353,7 +353,7 @@
 			// if "vertical" mode, calculate the sum of the heights of the children
 			if(slider.settings.mode == 'vertical'){
 				children.each(function(index) {
-				  height += $(this).outerHeight();
+				  height += jQuery(this).outerHeight();
 				});
 				// add user-supplied margins
 				if(slider.settings.slideMargin > 0){
@@ -362,7 +362,7 @@
 			// if not "vertical" mode, calculate the max height of the children
 			}else{
 				height = Math.max.apply(Math, children.map(function(){
-					return $(this).outerHeight(false);
+					return jQuery(this).outerHeight(false);
 				}).get());
 			}
 			return height;
@@ -602,10 +602,10 @@
 		var appendPager = function(){
 			if(!slider.settings.pagerCustom){
 				// create the pager DOM element
-				slider.pagerEl = $('<div class="bx-pager" />');
+				slider.pagerEl = jQuery('<div class="bx-pager" />');
 				// if a pager selector was supplied, populate it with the pager
 				if(slider.settings.pagerSelector){
-					$(slider.settings.pagerSelector).html(slider.pagerEl);
+					jQuery(slider.settings.pagerSelector).html(slider.pagerEl);
 				// if no pager selector was supplied, add it after the wrapper
 				}else{
 					slider.controls.el.addClass('bx-has-pager').append(slider.pagerEl);
@@ -613,7 +613,7 @@
 				// populate the pager
 				populatePager();
 			}else{
-				slider.pagerEl = $(slider.settings.pagerCustom);
+				slider.pagerEl = jQuery(slider.settings.pagerCustom);
 			}
 			// assign the pager click binding
 			slider.pagerEl.delegate('a', 'click', clickPagerBind);
@@ -623,23 +623,23 @@
 		 * Appends prev / next controls to the controls element
 		 */
 		var appendControls = function(){
-			slider.controls.next = $('<a class="bx-next" href="">' + slider.settings.nextText + '</a>');
-			slider.controls.prev = $('<a class="bx-prev" href="">' + slider.settings.prevText + '</a>');
+			slider.controls.next = jQuery('<a class="bx-next" href="">' + slider.settings.nextText + '</a>');
+			slider.controls.prev = jQuery('<a class="bx-prev" href="">' + slider.settings.prevText + '</a>');
 			// bind click actions to the controls
 			slider.controls.next.bind('click', clickNextBind);
 			slider.controls.prev.bind('click', clickPrevBind);
 			// if nextSlector was supplied, populate it
 			if(slider.settings.nextSelector){
-				$(slider.settings.nextSelector).append(slider.controls.next);
+				jQuery(slider.settings.nextSelector).append(slider.controls.next);
 			}
 			// if prevSlector was supplied, populate it
 			if(slider.settings.prevSelector){
-				$(slider.settings.prevSelector).append(slider.controls.prev);
+				jQuery(slider.settings.prevSelector).append(slider.controls.prev);
 			}
 			// if no custom selectors were supplied
 			if(!slider.settings.nextSelector && !slider.settings.prevSelector){
 				// add the controls to the DOM
-				slider.controls.directionEl = $('<div class="bx-controls-direction" />');
+				slider.controls.directionEl = jQuery('<div class="bx-controls-direction" />');
 				// add the control elements to the directionEl
 				slider.controls.directionEl.append(slider.controls.prev).append(slider.controls.next);
 				// slider.viewport.append(slider.controls.directionEl);
@@ -651,10 +651,10 @@
 		 * Appends start / stop auto controls to the controls element
 		 */
 		var appendControlsAuto = function(){
-			slider.controls.start = $('<div class="bx-controls-auto-item"><a class="bx-start" href="">' + slider.settings.startText + '</a></div>');
-			slider.controls.stop = $('<div class="bx-controls-auto-item"><a class="bx-stop" href="">' + slider.settings.stopText + '</a></div>');
+			slider.controls.start = jQuery('<div class="bx-controls-auto-item"><a class="bx-start" href="">' + slider.settings.startText + '</a></div>');
+			slider.controls.stop = jQuery('<div class="bx-controls-auto-item"><a class="bx-stop" href="">' + slider.settings.stopText + '</a></div>');
 			// add the controls to the DOM
-			slider.controls.autoEl = $('<div class="bx-controls-auto" />');
+			slider.controls.autoEl = jQuery('<div class="bx-controls-auto" />');
 			// bind click actions to the controls
 			slider.controls.autoEl.delegate('.bx-start', 'click', clickStartBind);
 			slider.controls.autoEl.delegate('.bx-stop', 'click', clickStopBind);
@@ -667,7 +667,7 @@
 			}
 			// if auto controls selector was supplied, populate it with the controls
 			if(slider.settings.autoControlsSelector){
-				$(slider.settings.autoControlsSelector).html(slider.controls.autoEl);
+				jQuery(slider.settings.autoControlsSelector).html(slider.controls.autoEl);
 			// if auto controls selector was not supplied, add it after the wrapper
 			}else{
 				slider.controls.el.addClass('bx-has-controls-auto').append(slider.controls.autoEl);
@@ -683,10 +683,10 @@
 			// cycle through each child
 			slider.children.each(function(index){
 				// get the image title attribute
-				var title = $(this).find('img:first').attr('title');
+				var title = jQuery(this).find('img:first').attr('title');
 				// append the caption
 				if (title != undefined && ('' + title).length) {
-                    $(this).append('<div class="bx-caption"><span>' + title + '</span></div>');
+                    jQuery(this).append('<div class="bx-caption"><span>' + title + '</span></div>');
                 }
 			});
 		}
@@ -748,7 +748,7 @@
 		var clickPagerBind = function(e){
 			// if auto show is running, stop it
 			if (slider.settings.auto) el.stopAuto();
-			var pagerLink = $(e.currentTarget);
+			var pagerLink = jQuery(e.currentTarget);
 			var pagerIndex = parseInt(pagerLink.attr('data-slide-index'));
 			// if clicked pager link is not active, continue with the goToSlide call
 			if(pagerIndex != slider.active.index) el.goToSlide(pagerIndex);
@@ -774,7 +774,7 @@
 			// remove all pager active classes
 			slider.pagerEl.find('a').removeClass('active');
 			// apply the active class for all pagers
-			slider.pagerEl.each(function(i, el) { $(el).find('a').eq(slideIndex).addClass('active'); });
+			slider.pagerEl.each(function(i, el) { jQuery(el).find('a').eq(slideIndex).addClass('active'); });
 		}
 
 		/**
@@ -907,7 +907,7 @@
 					// calculate the total width of children (used to calculate the speed ratio)
 					var totalDimens = 0;
 					slider.children.each(function(index){
-					  totalDimens += slider.settings.mode == 'horizontal' ? $(this).outerWidth(true) : $(this).outerHeight(true);
+					  totalDimens += slider.settings.mode == 'horizontal' ? jQuery(this).outerWidth(true) : jQuery(this).outerHeight(true);
 					});
 					// calculate the speed ratio (used to determine the new speed to finish the paused animation)
 					var ratio = slider.settings.speed / totalDimens;
@@ -1063,8 +1063,8 @@
 		 */
 		var resizeWindow = function(e){
 			// get the new window dimens (again, thank you IE)
-			var windowWidthNew = $(window).width();
-			var windowHeightNew = $(window).height();
+			var windowWidthNew = jQuery(window).width();
+			var windowHeightNew = jQuery(window).height();
 			// make sure that it is a true window resize
 			// *we must check this because our dinosaur friend IE fires a window resize event when certain DOM elements
 			// are resized. Can you just die already?*
@@ -1132,7 +1132,7 @@
 				slider.children.filter(':visible').fadeOut(slider.settings.speed).css({zIndex: 0});
 				// fade in the newly requested slide
 				slider.children.eq(slider.active.index).css('zIndex', 51).fadeIn(slider.settings.speed, function(){
-					$(this).css('zIndex', 50);
+					jQuery(this).css('zIndex', 50);
 					updateAfterSlideTransition();
 				});
 			// slider mode is not "fade"
@@ -1281,20 +1281,20 @@
 			// don't do anything if slider has already been destroyed
 			if(!slider.initialized) return;
 			slider.initialized = false;
-			$('.bx-clone', this).remove();
+			jQuery('.bx-clone', this).remove();
 			slider.children.each(function() {
-				$(this).data("origStyle") != undefined ? $(this).attr("style", $(this).data("origStyle")) : $(this).removeAttr('style');
+				jQuery(this).data("origStyle") != undefined ? jQuery(this).attr("style", jQuery(this).data("origStyle")) : jQuery(this).removeAttr('style');
 			});
-			$(this).data("origStyle") != undefined ? this.attr("style", $(this).data("origStyle")) : $(this).removeAttr('style');
-			$(this).unwrap().unwrap();
+			jQuery(this).data("origStyle") != undefined ? this.attr("style", jQuery(this).data("origStyle")) : jQuery(this).removeAttr('style');
+			jQuery(this).unwrap().unwrap();
 			if(slider.controls.el) slider.controls.el.remove();
 			if(slider.controls.next) slider.controls.next.remove();
 			if(slider.controls.prev) slider.controls.prev.remove();
 			if(slider.pagerEl) slider.pagerEl.remove();
-			$('.bx-caption', this).remove();
+			jQuery('.bx-caption', this).remove();
 			if(slider.controls.autoEl) slider.controls.autoEl.remove();
 			clearInterval(slider.interval);
-			if(slider.settings.responsive) $(window).unbind('resize', resizeWindow);
+			if(slider.settings.responsive) jQuery(window).unbind('resize', resizeWindow);
 		}
 
 		/**

@@ -2,32 +2,32 @@
             jQuery(document).ready(function($) {
                 'use strict';
 
-			$(function() {
+			jQuery(function() {
         // this will get the full URL at the address bar
         var url = window.location.href;
 
         // passes on every "a" tag
-        $(".main-menu a").each(function() {
+        jQuery(".main-menu a").each(function() {
             // checks if its the same on the address bar
             if (url == (this.href)) {
-                $(this).closest("li").addClass("active");
-				 $(this).parents('li').addClass('parent-active');
+                jQuery(this).closest("li").addClass("active");
+				 jQuery(this).parents('li').addClass('parent-active');
             }
         });
     }); 
 
 			// NUMBERS COUNTER START
-                $('.numbers').data('countToOptions', {
+                jQuery('.numbers').data('countToOptions', {
                     formatter: function(value, options) {
                         return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
                     }
                 });
 
                 // start timer
-                $('.timer').each(count);
+                jQuery('.timer').each(count);
 
                 function count(options) {
-                    var $this = $(this);
+                    var $this = jQuery(this);
                     options = $.extend({}, options || {}, $this.data('countToOptions') || {});
                     $this.countTo(options);
                 } // NUMBERS COUNTER END
@@ -97,8 +97,8 @@
 
 
 if(is_touch_device()){
-        $(".portfolio-image").on('click', function(e){					
-            $(this).find('.portfolio-hover').show();
+        jQuery(".portfolio-image").on('click', function(e){					
+            jQuery(this).find('.portfolio-hover').show();
         });
     }
     
@@ -113,7 +113,7 @@ if(is_touch_device()){
     (function() {
         //ISOTOPE
         // cache container
-        var $portfolioitems = $('#portfolioitems');
+        var $portfolioitems = jQuery('#portfolioitems');
         // initialize isotope
         $portfolioitems.isotope({
             filter: '*',
@@ -124,9 +124,9 @@ if(is_touch_device()){
         });
 
         // filter items when filter link is clicked
-        $('#filters a').click(function() {
-            $('#filters li').removeClass('active');
-            var selector = $(this).closest('li').addClass('active').end().attr('data-filter');
+        jQuery('#filters a').click(function() {
+            jQuery('#filters li').removeClass('active');
+            var selector = jQuery(this).closest('li').addClass('active').end().attr('data-filter');
             $portfolioitems.isotope({
                 filter: selector
             });
@@ -138,13 +138,13 @@ if(is_touch_device()){
 			
 
 try {		
-		if ($(".animated")[0]) {
-            $('.animated').css('opacity', '0');
+		if (jQuery(".animated")[0]) {
+            jQuery('.animated').css('opacity', '0');
 			}
-			$('.triggerAnimation').waypoint(function() {
-            var animation = $(this).attr('data-animate');
-            $(this).css('opacity', '');
-            $(this).addClass("animated " + animation);
+			jQuery('.triggerAnimation').waypoint(function() {
+            var animation = jQuery(this).attr('data-animate');
+            jQuery(this).css('opacity', '');
+            jQuery(this).addClass("animated " + animation);
 
 			},
                 {
