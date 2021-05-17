@@ -16,7 +16,6 @@
   <div id="content">
     <form action="{{ route('client.order') }}" method="post" class="beta-form-checkout">
       @csrf
-
       @if (Session::has('message'))
       @component('components.alert')
       @slot('class')
@@ -37,7 +36,7 @@
 
           <div class="form-block">
             <label for="name">Full name*</label>
-            <input type="text" name="name" placeholder="Full name" required>
+            <input type="text" name="name" value="{{ Auth::user()->full_name }}" required>
           </div>
           <div class="form-block">
             <label>Gender </label>
@@ -48,18 +47,18 @@
 
           <div class="form-block">
             <label for="email">Email*</label>
-            <input type="email" name="email" required placeholder="expample@gmail.com">
+            <input type="email" name="email" required value="{{ Auth::user()->email }}">
           </div>
 
           <div class="form-block">
             <label for="adress">Address*</label>
-            <input type="text" name="address" placeholder="Street Address" required>
+            <input type="text" name="address" value="{{ Auth::user()->address }}" required>
           </div>
 
 
           <div class="form-block">
             <label for="phone">Tel*</label>
-            <input type="text" name="phone_number" required>
+            <input type="text" name="phone_number" required value="{{ Auth::user()->phone }}">
           </div>
 
           <div class="form-block">

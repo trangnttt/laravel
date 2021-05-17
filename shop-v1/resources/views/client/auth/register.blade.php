@@ -81,6 +81,7 @@
                         <span class="is-error">{{ $errors->first('re_password') }}</span>
                         @enderror
                     </div>
+                    <p style="text-align: center;font-size: 13px;color: rgb(13, 92, 182);">Has account? <a  style="color: rgb(13, 92, 182);" href="{{route('client.signin')}}">Sign in account</a></p>
                     <div class="form-block">
                         <button type="submit" class="btn btn-primary">Register</button>
                     </div>

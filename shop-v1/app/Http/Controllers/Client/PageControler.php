@@ -138,41 +138,46 @@ class PageControler extends Controller
     {
         $carts = Session::get('cart');
         $result = array();
-        foreach ($carts as $key => $val) {
-            $result[] = $val['total'];
+        if($carts != NULL){
+            foreach ($carts as $key => $val) {
+                $result[] = $val['total'];
+            }
+            array_sum($result);
+            $totalPrice = array_sum($result);
+    
+            $customer = new Customer;
+            $customer->name = $req->name;
+            $customer->gender = $req->gender;
+            $customer->email = $req->email;
+            $customer->address = $req->address;
+            $customer->phone_number = $req->phone_number;
+            $customer->note = $req->note;
+            $customer->save();
+    
+    
+            $bill = new Bill;
+            $bill->id_customer = $customer->id;
+            $bill->date_order = date('Y-m-d');
+            $bill->total = $totalPrice;
+            $bill->payment = $req->payment;
+            $bill->note = $req->note;
+            $bill->save();
+    
+            foreach ($carts as $key => $val) {
+                $bill_detail = new BillDetail;
+                $bill_detail->id_bill = $bill->id;
+                $bill_detail->id_product = $key;
+                $bill_detail->quantity = $val['qty'];
+                $bill_detail->unit_price =  $val['unit_price'];
+                $bill_detail->save();
+            }
+            Session::forget('cart');
+            return redirect()->back()->with(['flag'=>'success','class'=>'success','message'=>"Successfully order"]);    
         }
-        array_sum($result);
-        $totalPrice = array_sum($result);
-
-        $customer = new Customer;
-        $customer->name = $req->name;
-        $customer->gender = $req->gender;
-        $customer->email = $req->email;
-        $customer->address = $req->address;
-        $customer->phone_number = $req->phone_number;
-        $customer->note = $req->note;
-        $customer->save();
-
-
-        $bill = new Bill;
-        $bill->id_customer = $customer->id;
-        $bill->date_order = date('Y-m-d');
-        $bill->total = $totalPrice;
-        $bill->payment = $req->payment;
-        $bill->note = $req->note;
-        $bill->save();
-
-        foreach ($carts as $key => $val) {
-            $bill_detail = new BillDetail;
-            $bill_detail->id_bill = $bill->id;
-            $bill_detail->id_product = $key;
-            $bill_detail->quantity = $val['qty'];
-            $bill_detail->unit_price =  $val['unit_price'];
-            $bill_detail->save();
+        else {
+            return redirect()->back()->with(['flag'=>'error','class'=>'danger','message'=>"Please select the item you want to order !!!"]);    
         }
-        Session::forget('cart');
-        return redirect()->back()->with(['flag'=>'success','class'=>'success','message'=>"Successfully order"]);
-
+       
     }
   
     public function getSearch(Request $req){

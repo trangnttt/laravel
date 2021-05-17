@@ -3,21 +3,21 @@
     <div class="container">
       <div class="pull-left auto-width-left">
         <ul class="top-menu menu-beta l-inline">
-          <li><a href=""><i class="fa fa-home"></i> 90-92 Lê Thị Riêng, Bến Thành, Quận 1</a></li>
+          <li><a href=""><i class="fa fa-home"></i> 715 Trung An, TP.Mỹ Tho, Tiền Giang</a></li>
           <li><a href=""><i class="fa fa-phone"></i> 0163 296 7751</a></li>
         </ul>
       </div>
       <div class="pull-right auto-width-right">
-      <ul class="top-details menu-beta l-inline">
-        @if(Auth::check())
-            <li><a href="#"><i class="fa fa-user"></i>{{ Auth::user()->full_name }}</a></li>
-            <li><a href="{{route('client.logout')}}">Logout</a></li>
-        @else
+        <ul class="top-details menu-beta l-inline">
+          @if(Auth::check())
+          <li><a href="#"><i class="fa fa-user"></i>{{ Auth::user()->full_name }}</a></li>
+          <li><a href="{{route('client.logout')}}">Logout</a></li>
+          @else
           <li><a href="#"><i class="fa fa-user"></i>Account</a></li>
           <li><a href="{{route('client.signup')}}">Sign up</a></li>
           <li><a href="{{route('client.signin')}}">Sign in</a>
-        @endif
-      </ul>
+            @endif
+        </ul>
       </div>
       <div class="clearfix"></div>
     </div> <!-- .container -->
@@ -66,7 +66,7 @@
                   <div class="media-body">
                     <span class="cart-item-title">{{ $cart['name'] }}</span>
                     <span class="cart-item-amount">
-                      <input class="form-control" type="number" data-id="{{$id}}" data-name="{{$name}}" data-img="{{$image}}" data-unit-price="{{$unit_price}}" data-promotion-price="{{$promotion_price}}"  data-price="{{$price}}" id="quantity-ip" name="quantity" min="1" max="20" value="{{ $cart['qty'] }}">
+                      <input class="form-control" type="number" data-id="{{$id}}" data-name="{{$name}}" data-img="{{$image}}" data-unit-price="{{$unit_price}}" data-promotion-price="{{$promotion_price}}" data-price="{{$price}}" id="quantity-ip" name="quantity" min="1" max="20" value="{{ $cart['qty'] }}">
                     </span>
                     <span class="cart-item-price">Price: {{ number_format($price) }} <small>VND</small></span>
                   </div>
@@ -79,7 +79,11 @@
 
                 <div class="center">
                   <div class="space10">&nbsp;</div>
+                  @if(Auth::check())
                   <a href="{{ route('client.order') }}" class="beta-btn primary text-center">Order <i class="fa fa-chevron-right"></i></a>
+                  @else
+                  <a href="{{route('client.signup')}}" class="beta-btn primary text-center">Order <i class="fa fa-chevron-right"></i></a>
+                    @endif
                 </div>
               </div>
             </div>
