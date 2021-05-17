@@ -11,6 +11,7 @@
         <ul class="top-details menu-beta l-inline">
           @if(Auth::check())
           <li><a href="#"><i class="fa fa-user"></i>{{ Auth::user()->full_name }}</a></li>
+          <li><a href="{{route('client.purchase')}}"><i class="fa fa-shopping-cart"></i>Đơn hàng</a></li>
           <li><a href="{{route('client.logout')}}">Logout</a></li>
           @else
           <li><a href="#"><i class="fa fa-user"></i>Account</a></li>

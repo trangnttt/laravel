@@ -179,6 +179,11 @@ class PageControler extends Controller
         }
        
     }
+
+    public function getPurchase()
+    {
+        return view('client.page.purchase');
+    }
   
     public function getSearch(Request $req){
         $product = Product::where('name', 'like', '%'.$req->key.'%')

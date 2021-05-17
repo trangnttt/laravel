@@ -32,6 +32,9 @@ Route::get('/delete-to-cart', [App\Http\Controllers\Client\PageControler::class,
 Route::get('/order', [App\Http\Controllers\Client\PageControler::class, 'getOrder'])->name('client.order');
 Route::post('/order', [App\Http\Controllers\Client\PageControler::class, 'postOrder'])->name('client.order');
 
+Route::get('/purchase', [App\Http\Controllers\Client\PageControler::class, 'getPurchase'])->name('client.purchase');
+
+
 Route::get('/search-product', [App\Http\Controllers\Client\PageControler::class, 'getSearch'])->name('client.search_product');
 
 Route::get('/sign-in', [App\Http\Controllers\Client\UserController::class, 'index'])->name('client.signin');
